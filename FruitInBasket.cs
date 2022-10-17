@@ -34,23 +34,13 @@ namespace DailyExercises
                 if (i == 0)
                 {
                     basketA = fruits[i];
+                    basketB = fruits[i];
                     last = basketA;
                     count++;
                 }
                 else
                 {
-                    if (basketA == fruits[i])
-                    {
-                        count++;
-                        repeat++;
-                        last =  fruits[i];
-                    }
-                    else if(basketB == fruits[i])
-                    {
-                        count++;
-                        repeat++;
-                        last =  fruits[i];
-                    }
+                    if (basketA == fruits[i]||basketB == fruits[i]) count++;
                     else
                     {
                        
@@ -61,15 +51,16 @@ namespace DailyExercises
                         }
                         else
                         {
-                            count++;
                             max = Math.Max(max, count);
                             count = repeat + 1;
-                            repeat = 1;
                         }
-                        if(last == basketA)basketB = fruits[i];
+                        if (last == basketA)basketB = fruits[i];
                         else basketA = fruits[i];
-                        last = fruits[i];
                     }
+
+                    if (last == fruits[i]) repeat++;
+                    else repeat = 1;
+                    last =  fruits[i];
                 }
             }
             return Math.Max(max, count); 
