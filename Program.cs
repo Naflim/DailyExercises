@@ -4,7 +4,6 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(FruitInBasket.TotalFruit(new int[] {1, 0, 2, 3, 4}));
-        Console.Read();
+        Console.WriteLine(MaxNArray.AtMostNGivenDigitSet(new string[] { "3", "4", "5", "6" }, 64));
     }
 }
