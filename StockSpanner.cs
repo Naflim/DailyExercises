@@ -22,76 +22,69 @@ using System.Threading.Tasks;
 
 namespace DailyExercises
 {
-    public class StockSpanner
-    {
-
-        readonly List<int> _stock;
-
-        public StockSpanner()
-        {
-            _stock = new List<int>();
-        }
-
-        public int Next(int price)
-        {
-            int days = 0;
-            _stock.Add(price);
-            for (int i = _stock.Count - 1; i>=0; i--)
-            {
-                if (_stock[i]>price) break;
-                days++;
-            }
-            return days;
-        }
-    }
-
-
     //public class StockSpanner
     //{
-    //    readonly List<Stock> _stocks;
-    //    int _now = -1;
+
+    //    readonly List<int> _stock;
 
     //    public StockSpanner()
     //    {
-    //        _stocks = new();
+    //        _stock = new List<int>();
     //    }
 
     //    public int Next(int price)
     //    {
-    //        _now++;
-
     //        int days = 0;
-    //        if (_stocks.Find(s => s.Value == price) is Stock stock)
+    //        _stock.Add(price);
+    //        for (int i = _stock.Count - 1; i>=0; i--)
     //        {
-    //            _stocks.Remove(stock);
-    //            _stocks.Add(new Stock(price, _now));
+    //            if (_stock[i]>price) break;
+    //            days++;
     //        }
-    //        else _stocks.Add(new Stock(price, _now));
-
-    //        for (int i = _stocks.Count - 1; i>=0; i--)
-    //        {
-    //            var nowStock = _stocks[i];
-    //            if (nowStock.Value>price)
-    //            {
-    //                days = _now - nowStock.Index;
-    //                break;
-    //            }
-    //        }
-
-    //        if (days == 0) days = _now + 1;
     //        return days;
     //    }
     //}
 
-    //public class Stock
-    //{
-    //    public int Value { get; set; }
-    //    public int Index { get; set; }
 
-    //    public Stock(int value, int index)
-    //    {
-    //        Value=value;
-    //        Index=index;
-    //    }
-    //}
+    public class StockSpanner
+    {
+        readonly List<Stock> _stocks;
+        int _now = -1;
+
+        public StockSpanner()
+        {
+            this._stocks = new();
+        }
+
+        public int Next(int price)
+        {
+            _now++;
+
+            int days = 0;
+            for (int i = _stocks.Count - 1; i>=0; i--)
+            {
+                var nowStock = _stocks[i];
+                if (nowStock.value>price)
+                {
+                    days = _now - nowStock.index;
+                    break;
+                }
+                else _stocks.Remove(nowStock);
+            }
+            _stocks.Add(new Stock(price, _now));
+            if (days == 0) days = _now + 1;
+            return days;
+        }
+    }
+
+    public struct Stock
+    {
+        public int value;
+        public int index;
+        public Stock(int value, int index)
+        {
+            this.value=value;
+            this.index=index;
+        }
+    }
 }
