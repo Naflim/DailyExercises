@@ -1,26 +1,4 @@
-﻿/*************************************************************************************
- *
- * 文 件 名:   StockSpanner
- * 描    述:   股票价格跨度
- * 
- * 版    本：  V1.0
- * 创 建 者：  柯懿
- * 创建时间：  2022/10/21 10:37:08
- * ======================================
- * 历史更新记录
- * 版本：V          修改时间：         修改人：
- * 修改内容：
- * ======================================
-*************************************************************************************/
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DailyExercises
+﻿namespace DailyExercises
 {
     //public class StockSpanner
     //{
@@ -45,7 +23,9 @@ namespace DailyExercises
     //    }
     //}
 
-
+    /// <summary>
+    /// 股票价格跨度
+    /// </summary>
     public class StockSpanner
     {
         readonly List<Stock> _stocks;
