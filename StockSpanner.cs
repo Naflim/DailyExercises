@@ -24,7 +24,7 @@
     //}
 
     /// <summary>
-    /// 股票价格跨度
+    /// 901 股票价格跨度
     /// </summary>
     public class StockSpanner
     {

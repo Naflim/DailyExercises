@@ -1,7 +1,7 @@
 ﻿namespace DailyExercises
 {
     /// <summary>
-    /// 水果成篮
+    /// 904. 水果成篮
     /// </summary>
     internal class FruitInBasket
     {

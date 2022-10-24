@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DailyExercises
 {
     /// <summary>
-    /// 最大为 N 的数字组合
+    /// 902. 最大为 N 的数字组合
     /// </summary>
     internal class MaxNArray
     {
