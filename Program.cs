@@ -4,7 +4,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(ShortestArray4K.ShortestSubarray(new int[] { 84, -37, 32, 40, 95 }, 167));
+        Console.WriteLine(ArraySumSign.ArraySign(new int[] { -1, 1, -1, 1, -1 }));
         Console.Read();
     }
 }
