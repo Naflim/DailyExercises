@@ -4,7 +4,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(ArraySumSign.ArraySign(new int[] { -1, 1, -1, 1, -1 }));
+        Console.WriteLine(ArrayStringsEqual.ArrayStringsAreEqual(new string[] { "a", "cb" }, new string[] { "ab", "c" }));
         Console.Read();
     }
 }
