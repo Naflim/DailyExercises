@@ -4,7 +4,8 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MaxRepeatingString.MaxRepeating("aaabaaaabaaabaaaabaaaabaaaabaaaaba", "aaaba"));
+
+        Console.WriteLine(MinSubarraysSum.SumSubarrayMins(new int[] { 71, 55, 82, 55 }));
         Console.Read();
     }
 }
