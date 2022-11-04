@@ -7,8 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Repositories\GitHub\NaflimHelperLibrary\NaflimHelperLibrary.csproj" />
-  </ItemGroup>
-
 </Project>
