@@ -5,7 +5,10 @@ class Program
     public static void Main()
     {
 
-        Console.WriteLine(GetReachNumber.ReachNumber(4));
-        Console.Read();
+        foreach(string str in FuzzyCoordinates.AmbiguousCoordinates("(123)"))
+        {
+            Console.WriteLine(str);
+        }
+        Console.ReadLine();
     }
 }
