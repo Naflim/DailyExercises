@@ -4,11 +4,8 @@ class Program
 {
     public static void Main()
     {
+        Console.WriteLine(ConsistentStringCount.CountConsistentStrings("abc", new string[] { "aaaaaaaaaaaa", "b", "c", "ab", "ac", "bc", "abc" }));
 
-        foreach(string str in FuzzyCoordinates.AmbiguousCoordinates("(123)"))
-        {
-            Console.WriteLine(str);
-        }
         Console.ReadLine();
     }
 }
