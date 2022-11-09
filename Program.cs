@@ -4,7 +4,10 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(ConsistentStringCount.CountConsistentStrings("abc", new string[] { "aaaaaaaaaaaa", "b", "c", "ab", "ac", "bc", "abc" }));
+        Console.WriteLine(LargestPlusSign.OrderOfLargestPlusSign(1, new int[][]
+        {
+            new int[] {0, 0 },
+        }));
 
         Console.ReadLine();
     }
