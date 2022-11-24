@@ -6,7 +6,7 @@ class Program
     {
         //Console.WriteLine(NthMagicalNumber.Run(1,2,3));
 
-        Console.WriteLine(CountBalls.Run(5, 15));
+        Console.WriteLine(NumSubarrayBoundedMax.Run(new int[] { 2, 9, 2, 5, 6 }, 2, 8));
         Console.ReadLine();
     }
 
