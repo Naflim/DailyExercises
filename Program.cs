@@ -6,7 +6,7 @@ class Program
     {
         //Console.WriteLine(NthMagicalNumber.Run(1,2,3));
 
-        Console.WriteLine(NumSubarrayBoundedMax.Run(new int[] { 2, 9, 2, 5, 6 }, 2, 8));
+        Console.WriteLine(BinarySearch.Search(new int[] { -1, 0, 3, 5, 9, 12 }, 2));
         Console.ReadLine();
     }
 
