@@ -1,11 +1,10 @@
 ﻿namespace DailyExercises;
 
-class Program
+static class Program
 {
-    public static void Main()
+    static void Main(string[] args)
     {
-        Console.WriteLine(ExpressiveWords.Run("zzzzzyyyyy", new string[] { "zzyy", "zy", "zyy" }));
-        Console.ReadLine();
+        Console.WriteLine(LargestSumOfAverages.Run(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 4));
+        Console.Read();
     }
-
 }
