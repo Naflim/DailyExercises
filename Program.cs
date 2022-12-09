@@ -4,6 +4,6 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(SquareIsWhite.Run("h3"));
+        Console.WriteLine(CheckPowersOfThree.Run(21));
     }
 }
