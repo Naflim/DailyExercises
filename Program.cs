@@ -7,7 +7,14 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MinElements.Run(new int[] { 2, 5, 5, -7, 4 }, 7, 464680098));
+        Console.WriteLine(ValidPath.Run(6,new int[][]
+        {
+            new int[] { 0,1},
+            new int[] { 0,2},
+            new int[] {3,5},
+              new int[] {5,4},
+              new int[] {4,3},
+        }, 0, 5));
         Console.ReadLine();
     }
 }
