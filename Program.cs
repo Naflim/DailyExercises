@@ -7,8 +7,7 @@ class Program
 {
     public static void Main()
     {
-        var val = TwoOutOfThree.Run(new int[] { 1, 2, 2 }, new int[] { 4, 3, 3 }, new int[] { 5 });
-        foreach (var v in val) Console.WriteLine(v);
+        Console.WriteLine(AreNumbersAscending.Run("4 5 11 26"));
 
         Console.ReadLine();
     }
