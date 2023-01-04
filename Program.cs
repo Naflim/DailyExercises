@@ -7,9 +7,9 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(AreNumbersAscending.Run("4 5 11 26"));
-
+        Console.WriteLine(SubscriptMaximum.Run(6, 2, 931384943));
         Console.ReadLine();
     }
 }
+
 
