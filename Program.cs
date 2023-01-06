@@ -7,8 +7,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(CountPairs.Run(new int[] { 9, 8, 4, 2, 1 },5,14));
-        Console.WriteLine(2^7);
+        Console.WriteLine(CountEven.Run(30));
         Console.ReadLine();
     }
 }
