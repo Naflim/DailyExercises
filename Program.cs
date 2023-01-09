@@ -7,7 +7,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(CountEven.Run(30));
+        Console.WriteLine(ReinitializePermutation.Run(6));
         Console.ReadLine();
     }
 }
