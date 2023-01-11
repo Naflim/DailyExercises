@@ -7,7 +7,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(ReinitializePermutation.Run(6));
+        Console.WriteLine(DigitCount.Run("1210"));
         Console.ReadLine();
     }
 }
