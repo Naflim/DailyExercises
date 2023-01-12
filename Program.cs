@@ -7,7 +7,11 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(DigitCount.Run("1210"));
+        Console.WriteLine(AlternateParenthesis.Run("(a)(a)(a)aaa", new string[][]
+        {
+            new string[] { "a","yes"},
+             //new string[] { "age", "two"},
+        }));
         Console.ReadLine();
     }
 }
