@@ -7,11 +7,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(AlternateParenthesis.Run("(a)(a)(a)aaa", new string[][]
-        {
-            new string[] { "a","yes"},
-             //new string[] { "age", "two"},
-        }));
+        Console.WriteLine(RearrangeCharacters.Run("abbaccaddaeea", "aaaaa"));
         Console.ReadLine();
     }
 }
