@@ -7,7 +7,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(RearrangeCharacters.Run("abbaccaddaeea", "aaaaa"));
+        Console.WriteLine(MinMaxGame.Run(new int[] { 3 }));
         Console.ReadLine();
     }
 }
