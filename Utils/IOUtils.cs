@@ -17,5 +17,14 @@ namespace DailyExercises.Utils
             string[] numList = data.Split(",");
             return numList.Select(x => Convert.ToInt32(x)).ToArray();
         }
+
+        public static string[] GetStringDataByFile(string path)
+        {
+            string data = File.ReadAllText(path);
+
+            data = data.Substring(1, data.Length - 2);
+
+            return data.Split(",");
+        }
     }
 }
