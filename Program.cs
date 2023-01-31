@@ -8,13 +8,15 @@ class Program
 {
     public static void Main()
     {
-
-        var val = MergeInBetween.Run(MergeInBetween.GetListNode(new int[] { 0, 1, 2, 3, 4, 5, 6 }), 2, 5, MergeInBetween.GetListNode(new int[] { 1000000, 1000001, 1000002, 1000003, 1000004 }));
-
-        while (val != null) 
-        {
-            Console.WriteLine(val.val);
-            val = val.next;
-        }
+         Console.WriteLine(CheckXMatrix.Run(new int[][] 
+         {
+             //new int[]{2,0,0,1},
+             //new int[]{0,3,1,0},
+             //new int[]{0,5,2,0},
+             //new int[]{4,0,0,2},
+             new int[]{5,7,0},
+             new int[]{0,3,1},
+             new int[]{0,5,0},
+         }));
     }
 }
