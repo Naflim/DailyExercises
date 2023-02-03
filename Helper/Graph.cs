@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace DailyExercises
+namespace DailyExercises.Helper
 {
     public interface IVertex<T>
     {
@@ -50,6 +50,15 @@ namespace DailyExercises
             Vertices = new Dictionary<T, Vertex>();
         }
 
+        public AdjacencyList(IEnumerable<T> vertices)
+        {
+            Vertices = new Dictionary<T, Vertex>();
+            foreach (T vertex in vertices) 
+            {
+                Vertices[vertex] = new Vertex(vertex);
+            }
+        }
+
         public void AddVertex(T value)
         {
             Vertices[value] = new Vertex(value);
@@ -63,45 +72,16 @@ namespace DailyExercises
             d.AddAdjacent(s);
         }
 
+        public void DirectedEdge(T source, T destination)
+        {
+            var s = Vertices[source];
+            var d = Vertices[destination];
+            s.AddAdjacent(d);
+        }
+
         public Vertex GetVertex(T source)
         {
             return Vertices[source];
-        }
-    }
-
-    class ToolUtils
-    {
-        public static List<T> BFS<T>(IVertex<T> root, T target) where T : notnull
-        {
-            HashSet<T> accessed = new();
-            List<Stack<IVertex<T>>> paths = new();
-            Stack<IVertex<T>> head = new Stack<IVertex<T>>();
-            head.Push(root);
-            paths.Add(head);
-            while (paths.Count > 0)
-            {
-                var cache = paths.ToArray();
-                paths.Clear();
-
-                foreach (var item in cache)
-                {
-                    var path = item.Peek();
-                    accessed.Add(path.GetValue());
-                    if (path.GetValue().Equals(target)) return item.Select(v => v.GetValue()).ToList();
-
-                    foreach(var next in path.NextVertex)
-                    {
-                        if (!accessed.Contains(next.GetValue()))
-                        {
-                            Stack<IVertex<T>> newPath = new Stack<IVertex<T>>(item);
-                            newPath.Push(next);
-                            paths.Add(newPath);
-                        }
-                    }
-                }
-            }
-
-            return new List<T>();
         }
     }
 }

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using DailyExercises.Helper;
+using DailyExercises.Utils;
 
 namespace DailyExercises
 {
-
+    /// <summary>
+    /// 1971. 寻找图中是否存在路径
+    /// </summary>
     internal class ValidPath
     {
         public static bool Run(int n, int[][] edges, int source, int destination)
