@@ -8,8 +8,14 @@ class Program
 {
     public static void Main()
     {
-        //TreeNode root = new(2, new(1), new(3,new(0), new(1)));
-        TreeNode root = new(0);
-        Console.WriteLine(EvaluateTree.Run(root));
+        AlertNames.Run(new string[]
+        {
+      "a","a","a","a","a","a","b","b","b","b","b"
+        }, new string[]
+        {
+    "23:27","03:14","12:57","13:35","13:18","21:58","22:39","10:49","19:37","14:14","10:41"
+        }).ToList().ForEach(name => Console.WriteLine(name));
+
+        Console.ReadLine();
     }
 }
