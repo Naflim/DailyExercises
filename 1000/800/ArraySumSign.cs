@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DailyExercises
 {
     /// <summary>
-    /// 数组元素积的符号
+    /// 1822. 数组元素积的符号
     /// </summary>
     internal class ArraySumSign
     {
