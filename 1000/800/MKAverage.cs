@@ -3,6 +3,9 @@ using System.Xml.Linq;
 
 namespace DailyExercises
 {
+    /// <summary>
+    /// 1825. 求出 MK 平均值
+    /// </summary>
     public class MKAverage
     {
         private int _m, _k, _standard;
