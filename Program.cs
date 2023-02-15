@@ -8,6 +8,6 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(LongestWPI.Run(new int[] { 9, 9, 6, 0, 6, 6, 9 }));
+        Console.WriteLine(IsGoodArray.Run(new int[] { 3, 6 }));
     }
 }
