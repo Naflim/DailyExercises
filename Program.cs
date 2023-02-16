@@ -8,6 +8,10 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(IsGoodArray.Run(new int[] { 3, 6 }));
+        foreach (var item in NumberOfPairs.Run(new int[] { 1, 1 }))
+        {
+            Console.WriteLine(item);
+        }
+
     }
 }
