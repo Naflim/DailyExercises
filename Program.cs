@@ -8,10 +8,12 @@ class Program
 {
     public static void Main()
     {
-        foreach (var item in NumberOfPairs.Run(new int[] { 1, 1 }))
+        Console.WriteLine(Largest1BorderedSquare.Run(new int[][]
         {
-            Console.WriteLine(item);
-        }
-
+            //new int[]{1,1,1 },
+            //new int[]{1,0,1 },
+            //new int[]{1,1,1 },
+            new int[]{1,1,0,0},
+        }));
     }
 }
