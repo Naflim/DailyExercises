@@ -8,9 +8,10 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MinTaps.Run(7, new int[]
+
+        Console.WriteLine(StoneGameII.Run(new int[]
         {
-       1,2,1,0,2,1,0,1
+     1,2,3,4,5,100
         }));
     }
 }
