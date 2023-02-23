@@ -8,10 +8,9 @@ class Program
 {
     public static void Main()
     {
-
-        Console.WriteLine(StoneGameII.Run(new int[]
+        foreach (var item in CircularPermutation.Run(2, 3))
         {
-     1,2,3,4,5,100
-        }));
+            Console.WriteLine(item);
+        }
     }
 }
