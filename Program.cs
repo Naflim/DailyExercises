@@ -8,9 +8,6 @@ class Program
 {
     public static void Main()
     {
-        foreach (var item in CircularPermutation.Run(2, 3))
-        {
-            Console.WriteLine(item);
-        }
+        Console.WriteLine(MinimumOperations.Run(new int[] { 0 }));
     }
 }
