@@ -8,6 +8,6 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MinimumOperations.Run(new int[] { 0 }));
+        Console.WriteLine(MovesToMakeZigzag.Run(new int[] { 1}));
     }
 }
