@@ -8,6 +8,6 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MinimumDeletions.Run("bbaaaaabb"));
+        Console.WriteLine(CountSubstrings.Run("abe", "bbc"));
     }
 }
