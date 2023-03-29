@@ -8,6 +8,6 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(CountSubstrings.Run("abe", "bbc"));
+        Console.WriteLine(CountVowelStrings.Run(1));
     }
 }
