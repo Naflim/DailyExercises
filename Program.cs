@@ -8,7 +8,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(Tribonacci.Run(25)); 
+        Console.WriteLine(MinCostClimbingStairs.Run(new int[] { 1, 100 })); 
     }
 }
 
