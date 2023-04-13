@@ -8,7 +8,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MinCostClimbingStairs.Run(new int[] { 1, 100 })); 
+        Console.WriteLine(MostFrequentEven.Run(new int[] { 29, 47, 21, 41, 13, 37, 25, 7 }));
     }
 }
 
