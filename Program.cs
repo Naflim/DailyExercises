@@ -8,7 +8,8 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MostFrequentEven.Run(new int[] { 29, 47, 21, 41, 13, 37, 25, 7 }));
+        
+
+        Console.WriteLine(CountDaysTogether.Run("08-15", "08-18","08-16","08-16"));
     }
 }
-
