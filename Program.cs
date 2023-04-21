@@ -8,6 +8,6 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(UniquePaths.Run(3, 7));
+        Console.WriteLine(SmallestEvenMultiple.Run(5));
     }
 }
