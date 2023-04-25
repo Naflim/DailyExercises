@@ -9,7 +9,18 @@ class Program
 {
     public static void Main()
     {
-        //Console.WriteLine(LastSubstring.Run(File.ReadAllText("C:\\Users\\Naflim\\Desktop\\data.txt")));
-        Console.WriteLine(LastSubstring.Run("cacacb"));
+        var arr = SortPeople.Run(new string[]
+        {
+           "Alice","Bob","Bob"
+        }, new int[]
+        {
+            155,185,150
+        });
+
+        foreach (var item in arr)
+        {
+            Console.WriteLine(item);
+        }
+        //Console.WriteLine(LastSubstring.Run("cacacb"));
     }
 }
