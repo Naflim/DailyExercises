@@ -9,9 +9,11 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(LongestStrChain.Run(new string[] 
+        Console.WriteLine(WordBreak.FWordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab", new List<string>() 
         {
-            "a","b","ba","bca","bda","bdca"
+           "a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"
         }));
+
+        Console.WriteLine();
     }
 }
