@@ -9,10 +9,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(WordBreak.FWordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab", new List<string>() 
-        {
-           "a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"
-        }));
+        Console.WriteLine(MinNumberOfFrogs.Run("croakcroa"));
 
         Console.WriteLine();
     }
