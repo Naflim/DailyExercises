@@ -9,8 +9,8 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MinNumberOfFrogs.Run("croakcroa"));
+        Console.WriteLine(MinDistance.Run("pneumonoultramicroscopicsilicovolcanoconiosis", "ultramicroscopically"));
 
-        Console.WriteLine();
+        Console.ReadLine();
     }
 }
