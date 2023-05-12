@@ -9,7 +9,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MinDistance.Run("pneumonoultramicroscopicsilicovolcanoconiosis", "ultramicroscopically"));
+        Console.WriteLine(MinimumDeleteSum.Run("delete", "leet"));
 
         Console.ReadLine();
     }
