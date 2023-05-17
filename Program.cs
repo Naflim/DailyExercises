@@ -9,10 +9,11 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(LengthOfLIS.Run(new int[] { 10, 9, 2, 5, 3, 7, 101, 18 }));
+        Console.WriteLine(FindNumberOfLIS.Run(new int[] { 1, 2, 4, 3, 5, 4, 7, 2 }));
 
         Console.ReadLine();
     }
 }
-//[10,9,2,5,3,7,101,18]
-//[4,10,4,3,8,9][0,1,0,3,2,3]
+//[1,3,5,4,7]
+
+//[1,2,4,3,5,4,7,2]
