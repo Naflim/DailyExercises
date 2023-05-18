@@ -139,7 +139,7 @@ namespace DailyExercises.Utils
                 while (comparator(list[j]) >= pivot && j > i) j--;
 
                 //找到一个大于pivot的值，循环结束i所在位置为大于pivot的元素所在的位置
-                while (comparator(list[i]) <= pivot&&j>i) i++;
+                while (comparator(list[i]) <= pivot && j > i) i++;
 
                 //交换上面找到的两个值
                 if (j > i)
