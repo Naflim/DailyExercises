@@ -7,4 +7,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="D:\NaflimProject\CSharp\DailyExercises\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="D:\NaflimProject\CSharp\DailyExercises\.editorconfig" />
+  </ItemGroup>
+
 </Project>
