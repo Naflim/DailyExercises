@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DailyExercises
-{
+{   
     /// <summary>
     /// 1027. 最长等差数列
     /// </summary>
