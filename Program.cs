@@ -10,10 +10,14 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(LongestCommonSubsequence.Run("pmjghexybyrgzczy", "hafcdqbgncrcbihkd"));
+        Console.WriteLine(MaxSumDivThree.Run(new int[] 
+        {
+           5,2,2,2
+        }));
         Console.ReadLine();
     }
 }
 
 //"pmjghexybyrgzczy"
 //"hafcdqbgncrcbihkd"
+//[5,2,2,2]
