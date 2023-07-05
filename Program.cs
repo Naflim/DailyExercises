@@ -10,7 +10,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MaxProfit3.Run2(new int[] { 3, 3, 5, 0, 0, 3, 1, 4 }));
+        Console.WriteLine(MaxProfit4.Run(2,new int[] { 1, 2, 4, 7 }));
         Console.ReadLine();
     }
 }
