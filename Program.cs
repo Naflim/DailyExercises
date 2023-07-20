@@ -10,7 +10,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MaxSubarraySumCircular.Run2(new int[] { 5, -3, 5 }));
+        Console.WriteLine(MaxSubarraySumCircular.Run2(new int[] { -2, -3, -1}));
         Console.ReadLine();
     }
 }

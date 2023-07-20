@@ -40,10 +40,57 @@ namespace DailyExercises
 
         public static int Run2(int[] nums)
         {
+            if (nums.Length == 1)
+                return nums[0];
 
+            if (!nums.Any(n => n < 0))
+                return nums.Sum();
+
+            if (!nums.Any(n => n > 0))
+                return nums.Max();
+
+            var kadane = GetKadane(nums);
+
+            int maximumLoss = 0;
+            int maximumLossIndex = -1;
+            int lossCache = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i]  > 0)
+                {
+                    lossCache  = 0;
+                }
+                else
+                {
+                    lossCache += nums[i];
+                    if (lossCache < maximumLoss)
+                    {
+                        maximumLoss = lossCache;
+                        maximumLossIndex = i;
+                    }
+                }
+            }
+
+            var dp = GetKadane(nums);
+            if (maximumLossIndex == 0)
+                return dp[1..].Max();
+
+            if(maximumLossIndex == nums.Length - 1)
+                return dp[..^1].Max();
+
+            var lastDp = GetKadane(nums[(maximumLossIndex + 1)..]);
+            int[] firstDp = new int[maximumLossIndex];
+            firstDp[0] = nums[0];
+            for (int i =1 ; i < firstDp.Length; i++)
+            {
+                firstDp[i] = firstDp[i - 1] + nums[i];
+            }
+
+            return Math.Max(dp.Max(), lastDp[^1] + firstDp.Max());
         }
 
-        public static int[] GetKadane(IEnumerable<int> nums) 
+        public static int[] GetKadane(IEnumerable<int> nums)
         {
             var numArr = nums.ToArray();
             int[] dp = new int[numArr.Length];
