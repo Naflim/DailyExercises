@@ -10,7 +10,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(NumTrees.Run2(5));
+        var val = GenerateTrees.Run(6);
         Console.ReadLine();
     }
 }
