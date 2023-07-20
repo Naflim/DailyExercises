@@ -10,7 +10,7 @@ class Program
 {
     public static void Main()
     {
-        var val = GenerateTrees.Run(6);
+        Console.WriteLine(MaxSubarraySumCircular.Run2(new int[] { 5, -3, 5 }));
         Console.ReadLine();
     }
 }
