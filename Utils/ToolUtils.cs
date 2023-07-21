@@ -72,20 +72,19 @@ namespace DailyExercises.Utils
         }
 
         /// <summary>
-        /// 快速排序并返回指定类型列表
+        /// 快速排序同时返回比较值
         /// </summary>
         /// <typeparam name="T">排序类型</typeparam>
-        /// <typeparam name="V">返回类型</typeparam>
         /// <param name="list">列表</param>
         /// <param name="comparator">排序基准</param>
-        /// <param name="convert">类型转换方法</param>
-        /// <returns>排序后列表</returns>
+        /// <returns><排序后列表/returns>
         /// <remarks>此方法不会改变数组原有顺序</remarks>
-        public static List<V> QuickSort<T, V>(this IEnumerable<T> list, Func<T, double> comparator, Func<T, V> convert)
+        public static List<Tuple<TSource, TKey>> QuickSortAlsoReComp<TSource, TKey>(this IEnumerable<TSource> list, Func<TSource, TKey> keySelector)
+             where TKey : IComparable<TKey>
         {
-            var sortList = list.ToList();
-            QuickSort(sortList, comparator, 0, sortList.Count - 1);
-            return sortList.Select(v => convert(v)).ToList();
+            List<Tuple<TSource, TKey>> sortList = list.Select(v => new Tuple<TSource, TKey>(v, keySelector(v))).ToList();
+            QuickSort(sortList, v => v.Item2, 0, sortList.Count - 1);
+            return sortList;
         }
 
         /// <summary>
@@ -96,25 +95,37 @@ namespace DailyExercises.Utils
         /// <param name="comparator">排序基准</param>
         /// <returns>排序后列表</returns>
         /// <remarks>此方法不会改变数组原有顺序</remarks>
-        public static List<T> QuickSort<T>(this IEnumerable<T> list, Func<T, double> comparator)
+        public static List<TSource> QuickSort<TSource, TKey>(this IEnumerable<TSource> list, Func<TSource, TKey> keySelector)
+             where TKey : IComparable<TKey>
         {
             var sortList = list.ToList();
-            QuickSort(sortList, comparator, 0, sortList.Count - 1);
-            return sortList;
-        }
 
-        /// <summary>
-        /// 快速排序同时返回比较值
-        /// </summary>
-        /// <typeparam name="T">排序类型</typeparam>
-        /// <param name="list">列表</param>
-        /// <param name="comparator">排序基准</param>
-        /// <returns><排序后列表/returns>
-        /// <remarks>此方法不会改变数组原有顺序</remarks>
-        public static List<Tuple<T, double>> QuickSortAlsoReComp<T>(this IEnumerable<T> list, Func<T, double> comparator)
-        {
-            List<Tuple<T, double>> sortList = list.Select(v => new Tuple<T, double>(v, comparator(v))).ToList();
-            QuickSort(sortList, v => v.Item2, 0, sortList.Count - 1);
+            //先右后左，通过栈来避免深度递归时的栈溢出问题
+            Stack<int> stack = new Stack<int>();
+            stack.Push(sortList.Count - 1);
+            stack.Push(0);
+
+            while(stack.Count > 0)
+            {
+                int left = stack.Pop();
+                int right = stack.Pop();
+
+                int keyIndex = QuickSort(sortList,keySelector,left,right);
+
+                //先右后左
+                if(keyIndex + 1 < right)
+                {
+                    stack.Push(right);
+                    stack.Push(keyIndex + 1);
+                }
+
+                if(keyIndex - 1 > left)
+                {
+                    stack.Push(keyIndex - 1);
+                    stack.Push(left);
+                }
+            }
+
             return sortList;
         }
 
@@ -160,5 +171,50 @@ namespace DailyExercises.Utils
             QuickSort(list, comparator, i+1, end);
         }
 
+        /// <summary>
+        /// 快速排序
+        /// </summary>
+        /// <typeparam name="TSource">排序类型</typeparam>
+        /// <typeparam name="TKey">类型中的键</typeparam>
+        /// <param name="list">列表</param>
+        /// <param name="keySelector">用于从元素中提取键的函数</param>
+        /// <param name="begin">范围起点</param>
+        /// <param name="end">范围终点</param>
+        /// <returns>基准元素于排序后的索引</returns>
+        /// <remarks>
+        /// 此方法会改变数组原有顺序
+        /// </remarks>
+        private static int QuickSort<TSource, TKey>(IList<TSource> list, Func<TSource, TKey> keySelector, int begin, int end)
+            where TKey : IComparable<TKey>
+        {
+            if (begin > end) return -1;
+
+            var pivot = keySelector(list[begin]);//设定基准元素
+            int i = begin, j = end;//保存起始和结尾索引下标
+
+            while (i != j)
+            {
+                //找到一个小于pivot的值，循环结束j所在位置为小于pivot的元素所在的位置
+                while (keySelector(list[j]).CompareTo(pivot) >= 0 && j > i) j--;
+
+                //找到一个大于pivot的值，循环结束i所在位置为大于pivot的元素所在的位置
+                while (keySelector(list[i]).CompareTo(pivot) <= 0 && j > i) i++;
+
+                //交换上面找到的两个值
+                if (j > i)
+                {
+                    TSource tempA = list[i];
+                    list[i] = list[j];
+                    list[j] = tempA;
+                }
+            }//循环结束i=j;
+
+            //交换起始的基准元素到i，j所在位置，交换后基准元素左侧都小于基准元素，右侧都大于基准元素
+            TSource tempB = list[begin];
+            list[begin] = list[i];
+            list[i] = tempB;
+
+            return i;
+        }
     }
 }
