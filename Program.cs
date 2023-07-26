@@ -10,7 +10,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(NumSquares.Run(43));
+        Console.WriteLine(NumSquares.Run2(43));
         Console.ReadLine();
     }
 }

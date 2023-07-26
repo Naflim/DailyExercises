@@ -46,5 +46,21 @@ namespace DailyExercises
 
             return dp[len - 1, n];
         }
+
+        public static int Run2(int n)
+        {
+            int[] f = new int[n + 1];
+            for (int i = 1; i <= n; i++)
+            {
+                int minn = int.MaxValue;
+                for (int j = 1; j * j <= i; j++)
+                {
+                    minn = Math.Min(minn, f[i - j * j]);
+                }
+                f[i] = minn + 1;
+            }
+
+            return f[n];
+        }
     }
 }
