@@ -10,7 +10,7 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(NumJewelsInStones.Run("z", "ZZ"));
+        Console.WriteLine(NumSquares.Run(43));
         Console.ReadLine();
     }
 }
