@@ -10,7 +10,12 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(NumSquares.Run2(43));
+        var val = new int[][]
+        {
+            new int[]{10},
+            //new int[]{3,3,1},
+        };
+        Console.WriteLine(DeleteGreatestValue.Run(val));
         Console.ReadLine();
     }
 }
