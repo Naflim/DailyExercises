@@ -10,12 +10,7 @@ class Program
 {
     public static void Main()
     {
-        var val = new int[][]
-        {
-            new int[]{10},
-            //new int[]{3,3,1},
-        };
-        Console.WriteLine(DeleteGreatestValue.Run(val));
+        Console.WriteLine(CombinationSum4.Run(new int[] {1,2,3},4));
         Console.ReadLine();
     }
 }
