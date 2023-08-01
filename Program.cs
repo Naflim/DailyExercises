@@ -10,7 +10,10 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(CombinationSum4.Run(new int[] {1,2,3},4));
+        Console.WriteLine(FindMaxForm.Run(new string[] 
+        {
+           "10", "0", "1"
+        },1,1));
         Console.ReadLine();
     }
 }
