@@ -10,17 +10,10 @@ class Program
 {
     public static void Main()
     {
-        var fronts = new int[]
+        Console.WriteLine(CoinChange.Run(new int[] 
         {
-           2,1,1,2,2
-        };
-
-        var backs = new int[]
-       {
-          2,2,1,2,1
-       };
-
-        Console.WriteLine(Flipgame.Run(fronts,backs));
+            1, 2, 5
+        },11));
         Console.ReadLine();
     }
 }
