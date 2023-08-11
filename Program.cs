@@ -10,10 +10,13 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(CoinChange.Run(new int[] 
+        var demo = new int[][]
         {
-            1, 2, 5
-        },11));
+            new int[]{1,2,3},
+            new int[]{4,5,6},
+            new int[]{7,8,9},
+        };
+        Console.WriteLine(DiagonalSum.Run(demo));
         Console.ReadLine();
     }
 }
