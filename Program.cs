@@ -10,13 +10,20 @@ class Program
 {
     public static void Main()
     {
-        var demo = new int[][]
-        {
-            new int[]{1,2,3},
-            new int[]{4,5,6},
-            new int[]{7,8,9},
-        };
-        Console.WriteLine(DiagonalSum.Run(demo));
+        TreeNode root1 = new TreeNode(1, new TreeNode(3, new TreeNode(5)), new TreeNode(2));
+        TreeNode root2 = new TreeNode(2, new TreeNode(1, null, new TreeNode(4)), new TreeNode(3, null, new TreeNode(7)));
+        var node = MergeTrees.Run(root1, root2);
+        ConsoleNode(node);
         Console.ReadLine();
+    }
+
+    public static void ConsoleNode(TreeNode node)
+    {
+        Console.WriteLine(node.val);
+        if(node.left != null)
+            ConsoleNode(node.left);
+
+        if(node.right != null)
+            ConsoleNode(node.right);
     }
 }
