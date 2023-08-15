@@ -10,20 +10,26 @@ class Program
 {
     public static void Main()
     {
-        TreeNode root1 = new TreeNode(1, new TreeNode(3, new TreeNode(5)), new TreeNode(2));
-        TreeNode root2 = new TreeNode(2, new TreeNode(1, null, new TreeNode(4)), new TreeNode(3, null, new TreeNode(7)));
-        var node = MergeTrees.Run(root1, root2);
-        ConsoleNode(node);
+        Console.WriteLine(FindReplaceString.Run("abcd",
+            new int[] { 0, 2 },
+            new string[] { "a", "cd" },
+            new string[] { "eee", "ffff" }));
+
+
+        //Console.WriteLine(FindReplaceString.Run("abcd",
+        //    new int[] { 0, 2 },
+        //    new string[] { "ab", "ec" },
+        //    new string[] { "eee", "ffff" }));
+
+        //Console.WriteLine(FindReplaceString.Run("vmokgggqzp",
+        //    new int[] { 3, 5, 1 },
+        //    new string[] { "kg", "ggq", "mo" },
+        //    new string[] { "s", "so", "bfr" }));
+
+        //    Console.WriteLine(FindReplaceString.Run("abcde",
+        //new int[] { 2, 2 },
+        //new string[] { "cdef", "bc" },
+        //new string[] { "f", "fe" }));
         Console.ReadLine();
-    }
-
-    public static void ConsoleNode(TreeNode node)
-    {
-        Console.WriteLine(node.val);
-        if(node.left != null)
-            ConsoleNode(node.left);
-
-        if(node.right != null)
-            ConsoleNode(node.right);
     }
 }
