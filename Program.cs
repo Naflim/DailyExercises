@@ -10,7 +10,28 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MaxSizeSlices.Run2(new int[] { 1, 2, 3, 4, 5, 6 }));
+        //int[][] val = new int[][]
+        //{
+        //    new int[] { 1,1,0 },
+        //    new int[] { 1,1,0 },
+        //    new int[] { 0,0,1 }
+        //};
+
+        int[][] val = new int[][]
+        {
+            new int[] { 1,0,0 },
+            new int[] { 0,1,0 },
+            new int[] { 0,0,1 }
+        };
+
+        // int[][] val = new int[][]
+        //{
+        //     new int[] { 1,0,0,1 },
+        //     new int[] { 0,1,1,0 },
+        //     new int[] { 0, 1, 1, 1 },
+        //      new int[] { 1,0,1,1},
+        //};
+        Console.WriteLine(FindCircleNum.Run(val));
 
         Console.ReadLine();
     }

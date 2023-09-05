@@ -216,5 +216,71 @@ namespace DailyExercises.Utils
 
             return i;
         }
+
+        /// <summary>
+        /// 获取序列最小项
+        /// </summary>
+        /// <typeparam name="TSource">排序类型</typeparam>
+        /// <typeparam name="TKey">类型中的键</typeparam>
+        /// <param name="list">列表</param>
+        /// <param name="keySelector">用于从元素中提取键的函数</param>
+        /// <returns>最小项</returns>
+        /// <exception cref="RankException">数组长度为0</exception>
+        public static TSource MinItem<TSource, TKey>(this IEnumerable<TSource> list, Func<TSource, TKey> keySelector)
+          where TKey : IComparable<TKey>
+        {
+            var arr = list.ToArray();
+            int len = arr.Length;
+            if (len == 0)
+                throw new RankException("序列不可为空");
+
+            Tuple<TSource, TKey> result = new Tuple<TSource, TKey>(arr[0], keySelector(arr[0]));
+
+            for (int i = 1; i < len; i++)
+            {
+                var currentVal = new Tuple<TSource, TKey>(arr[i], keySelector(arr[i]));
+                if (currentVal.Item2.CompareTo(result.Item2) == -1)
+                    result = currentVal;
+            }
+
+            return result.Item1;
+        }
+
+        /// <summary>
+        /// 获取序列所有最小项
+        /// </summary>
+        /// <typeparam name="TSource">排序类型</typeparam>
+        /// <typeparam name="TKey">类型中的键</typeparam>
+        /// <param name="list">列表</param>
+        /// <param name="keySelector">用于从元素中提取键的函数</param>
+        /// <returns>所有最小项</returns>
+        /// <exception cref="RankException">数组长度为0</exception>
+        public static List<TSource> MinItems<TSource, TKey>(this IEnumerable<TSource> list, Func<TSource, TKey> keySelector)
+          where TKey : IComparable<TKey>
+        {
+            var arr = list.ToArray();
+            int len = arr.Length;
+            if (len == 0)
+                throw new RankException("序列不可为空");
+
+            List<TSource> result = new List<TSource>() { arr[0] };
+            var minKey = keySelector(arr[0]);
+
+            for (int i = 1; i < len; i++)
+            {
+                var nowKey = keySelector(arr[i]);
+                switch (minKey.CompareTo(nowKey))
+                {
+                    case 0:
+                        result.Add(arr[i]);
+                        break;
+                    case -1:
+                        result = new List<TSource> { arr[i] };
+                        break;
+                }
+            }
+
+            return result;
+        }
     }
 }
