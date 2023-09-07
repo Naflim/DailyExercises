@@ -10,28 +10,8 @@ class Program
 {
     public static void Main()
     {
-        //int[][] val = new int[][]
-        //{
-        //    new int[] { 1,1,0 },
-        //    new int[] { 1,1,0 },
-        //    new int[] { 0,0,1 }
-        //};
-
-        int[][] val = new int[][]
-        {
-            new int[] { 1,0,0 },
-            new int[] { 0,1,0 },
-            new int[] { 0,0,1 }
-        };
-
-        // int[][] val = new int[][]
-        //{
-        //     new int[] { 1,0,0,1 },
-        //     new int[] { 0,1,1,0 },
-        //     new int[] { 0, 1, 1, 1 },
-        //      new int[] { 1,0,1,1},
-        //};
-        Console.WriteLine(FindCircleNum.Run(val));
+        var arr = IOUtils.GetDataByFile("C:\\Users\\Naflim\\Desktop\\data.txt");
+        Console.WriteLine(RepairCars.Run(arr, 1000000));
 
         Console.ReadLine();
     }
