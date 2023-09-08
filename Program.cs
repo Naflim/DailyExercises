@@ -10,8 +10,8 @@ class Program
 {
     public static void Main()
     {
-        var arr = IOUtils.GetDataByFile("C:\\Users\\Naflim\\Desktop\\data.txt");
-        Console.WriteLine(RepairCars.Run(arr, 1000000));
+
+        Console.WriteLine(FindDelayedArrivalTime.Run(13,11));
 
         Console.ReadLine();
     }
