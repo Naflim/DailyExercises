@@ -16,6 +16,17 @@ namespace DailyExercises.Helper.Tree
         private const bool BLACK = true;
 
 
+        public bool Debug(K key)
+        {
+            if(GetNode(key) is RBNode node) 
+            {
+                return (node.Left?.Equals(node) ?? false) || (node.Right?.Equals(node) ?? false);
+            }
+
+            return false;
+        }
+             
+
         public void Put(K key, V value)
         {
             //如果添加节点为根结点
@@ -68,6 +79,28 @@ namespace DailyExercises.Helper.Tree
             V result = node.Value;
             DeleteNode(node);
             return result;
+        }
+
+        public V? Find(K key)
+        {
+            var pointer = root;
+            while(pointer != null)
+            {
+                var com = key.CompareTo(pointer.Key);
+                switch(com) 
+                {
+                    case -1:
+                        pointer = pointer.Left; 
+                        break;
+                    case 0:
+                        return pointer.Value;
+                    case 1:
+                        pointer = pointer.Right;
+                        break;
+                }
+            }
+
+            return default;
         }
 
         private RBNode? GetNode(K key)
@@ -436,8 +469,9 @@ namespace DailyExercises.Helper.Tree
             }
 
             newRoot.Parent = parent;
+
             var lr = newRoot.Right;
-            newRoot.Left = p;
+            newRoot.Right = p;
             p.Parent = newRoot;
             p.Left = lr;
             if (lr != null)
