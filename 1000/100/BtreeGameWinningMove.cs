@@ -1,4 +1,4 @@
-﻿using DailyExercises.Helper;
+﻿using DailyExercises.Helper.Graph;
 using DailyExercises.Utils;
 using System;
 using System.Collections.Generic;

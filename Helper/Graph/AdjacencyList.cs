@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace DailyExercises.Helper
+namespace DailyExercises.Helper.Graph
 {
     public interface IVertex<T>
     {
@@ -53,7 +53,7 @@ namespace DailyExercises.Helper
         public AdjacencyList(IEnumerable<T> vertices)
         {
             Vertices = new Dictionary<T, Vertex>();
-            foreach (T vertex in vertices) 
+            foreach (T vertex in vertices)
             {
                 Vertices[vertex] = new Vertex(vertex);
             }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DailyExercises.Helper
+namespace DailyExercises.Helper.Tree
 {
     internal class DictionaryTree<T> where T : notnull
     {
@@ -12,7 +12,7 @@ namespace DailyExercises.Helper
         public T[] ParentNodes { get; }
         public Dictionary<T, DictionaryTree<T>> Tree { get; }
 
-        public DictionaryTree(T node,IEnumerable<T> parentNodes)
+        public DictionaryTree(T node, IEnumerable<T> parentNodes)
         {
             Node = node;
             ParentNodes = parentNodes.ToArray();

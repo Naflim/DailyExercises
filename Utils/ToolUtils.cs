@@ -1,4 +1,4 @@
-﻿using DailyExercises.Helper;
+﻿using DailyExercises.Helper.Graph;
 
 namespace DailyExercises.Utils
 {
