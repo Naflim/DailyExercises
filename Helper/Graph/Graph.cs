@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using DailyExercises.Utils;
 
 namespace HW.CAB.Helper.PipeNetwork
@@ -246,9 +247,10 @@ namespace HW.CAB.Helper.PipeNetwork
         /// <param name="start">起点</param>
         /// <param name="end">终点</param>
         /// <param name="filter">过滤器</param>
+        /// <param name="hasRepeatNode">允许路径出现重复节点</param>
         /// <returns>最少连接数路径</returns>
         /// <exception cref="ArgumentException">目标点不在图内</exception>
-        public List<T> GetShortestPathByBfs(T start, T end, Func<T[], T, bool> filter = null)
+        public List<T> GetShortestPathByBfs(T start, T end, Func<T[], T, bool> filter = null, bool hasRepeatNode = false)
         {
             if (!connectivity.ContainsKey(start))
             {
@@ -273,7 +275,8 @@ namespace HW.CAB.Helper.PipeNetwork
                 foreach (var item in cache)
                 {
                     T node = item.Last.Value;
-                    accessed.Add(node);
+                    if (!hasRepeatNode)
+                        accessed.Add(node);
                     if (node.Equals(end))
                     {
                         return item.ToList();
