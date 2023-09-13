@@ -12,15 +12,13 @@ class Program
 {
     public static void Main()
     {
-        var redEdges = IOUtils.GetArrsByFile("C:/Users/Naflim/Desktop/red2.txt");
-        var blueEdges = IOUtils.GetArrsByFile("C:/Users/Naflim/Desktop/blue2.txt");
-
-        var val = ShortestAlternatingPaths.Run(9, redEdges, blueEdges);
-
-        foreach (var item in val) 
+        Console.WriteLine(NumOfMinutes.Run(6,2,new int[] 
         {
-            Console.WriteLine(item);
-        }
+            2,2,-1,2,2,2
+        },new int[] 
+        {
+            0,0,1,0,0,0
+        }));
         Console.ReadLine();
     }
 }
