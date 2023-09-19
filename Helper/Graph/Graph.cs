@@ -9,8 +9,6 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 using DailyExercises.Utils;
 
@@ -42,12 +40,6 @@ namespace HW.CAB.Helper.PipeNetwork
         /// </summary>
         private Dictionary<T, List<T>> connectivity;
 
-        /// <summary>
-        /// 线程安全的连接关系表
-        /// </summary>
-        /// <remarks>用作异步存储</remarks>
-        private ConcurrentDictionary<T, List<T>> connectivityAsync;
-
         public Graph(T origin)
         {
             Origin = origin;
@@ -65,31 +57,6 @@ namespace HW.CAB.Helper.PipeNetwork
         {
             connectivity = new Dictionary<T, List<T>>();
             AddNextNode(Origin);
-        }
-
-        /// <summary>
-        /// 以异步形式检索图结构
-        /// </summary>
-        /// <returns>异步操作</returns>
-        /// <remarks>
-        /// BFS,检索分支时将新分支分配给线程池安排检索
-        /// </remarks>
-        public Task StartRetrievalAsync()
-        {
-            return Task.Factory.StartNew(() =>
-            {
-                connectivityAsync = new ConcurrentDictionary<T, List<T>>();
-                CountdownEvent countdown = new CountdownEvent(1);
-                ThreadPool.GetMaxThreads(out int works, out int coms);
-
-                //ShellUtils.Inst.Info($"当前任务数{countdown.CurrentCount}");
-                ThreadPool.QueueUserWorkItem(AddNextNodeAsync,
-                                             new Tuple<T, CountdownEvent>(Origin,
-                                                 countdown));
-                countdown.Wait(180000);
-                connectivity = new Dictionary<T, List<T>>(connectivityAsync);
-            },
-                                         TaskCreationOptions.LongRunning);
         }
 
         /// <summary>
@@ -342,6 +309,101 @@ namespace HW.CAB.Helper.PipeNetwork
             return result;
         }
 
+        /// <summary>
+        /// 基于Tarjan算法获取图中的割点
+        /// </summary>
+        /// <returns>割点</returns>
+        public List<T> GetCutVertexsByTarjan()
+        {
+            Tarjan(out List<T> cutVertexs, out _, out _);
+            return cutVertexs;
+        }
+
+        /// <summary>
+        /// 基于Tarjan算法获取图中的桥
+        /// </summary>
+        /// <returns>桥</returns>
+        public List<(T, T)> GetBridgesByTarjan()
+        {
+            Tarjan(out _, out List<(T, T)> bridge, out _);
+            return bridge;
+        }
+
+        /// <summary>
+        /// Tarjan算法
+        /// </summary>
+        /// <param name="cutVertexs">割点</param>
+        /// <param name="bridge">桥</param>
+        /// <param name="dfn">强连通分量dfn</param>
+        /// <param name="low">强连通分量low</param>
+        public void Tarjan(out List<T> cutVertexs, out List<(T, T)> bridge, out Dictionary<T, int> dfn, out Dictionary<T, int> low)
+        {
+            Tarjan(out cutVertexs, out bridge, out Dictionary<T, (T prev, int dfn, int low)> tarjanData);
+            dfn = new Dictionary<T, int>();
+            low = new Dictionary<T, int>();
+            foreach (var item in tarjanData)
+            {
+                dfn[item.Key] = item.Value.dfn;
+                low[item.Key] = item.Value.low;
+            }
+        }
+
+        private void Tarjan(out List<T> cutVertexs, out List<(T, T)> bridge, out Dictionary<T, (T prev, int dfn, int low)> tarjanData)
+        {
+            cutVertexs = new List<T>();
+            bridge = new List<(T, T)>();
+            Stack<T> stack = new Stack<T>();
+            stack.Push(Origin);
+            var dic = new Dictionary<T, (T prev, int dfn, int low)>();
+            int count = 1;
+            dic[Origin] = new(null, count, count);
+            int rootSonCount = 0;
+            while (stack.Count > 0)
+            {
+                var now = stack.Peek();
+                var next = GetConnectivity(now).Where(n => !dic.ContainsKey(n)).FirstOrDefault();
+                if (next != null)
+                {
+                    if (now.Equals(Origin))
+                        rootSonCount++;
+
+                    count++;
+                    dic[next] = (now, count, count);
+                    stack.Push(next);
+                }
+                else
+                {
+                    stack.Pop();
+                    if (now.Equals(Origin))
+                        continue;
+
+                    var nowVal = dic[now];
+                    int low;
+                    var lows = GetConnectivity(now).Where(n => !n.Equals(dic[now].prev)).Select(n => dic[n].low).ToArray();
+                    if (lows.Length == 0)
+                    {
+                        low = dic[now].low;
+                    }
+                    else
+                    {
+                        low = lows.Min();
+                        dic[now] = (nowVal.prev, nowVal.dfn, low);
+                    }
+
+                    if (lows.Length > 0 && low >= dic[nowVal.prev].dfn)
+                        cutVertexs.Add(now);
+
+                    if (low > dic[nowVal.prev].dfn)
+                        bridge.Add((nowVal.prev, now));
+                }
+            }
+
+            if (rootSonCount > 1)
+                cutVertexs.Add(Origin);
+
+            tarjanData = dic;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             return connectivity.Keys.GetEnumerator();
@@ -359,45 +421,6 @@ namespace HW.CAB.Helper.PipeNetwork
             foreach (var item in nextNodes)
             {
                 AddNextNode(item);
-            }
-        }
-
-        private void AddNextNodeAsync(object state)
-        {
-            try
-            {
-                if (!(state is Tuple<T, CountdownEvent> date))
-                {
-                    return;
-                }
-
-                var node = date.Item1;
-                var countdown = date.Item2;
-                connectivityAsync[node] = new List<T>(node.GetNextNodes());
-                var nextNodes = connectivityAsync[node].Where(n => !connectivityAsync.ContainsKey(n)).ToArray();
-
-                if (nextNodes.Length == 0)
-                {
-                    countdown.Signal();
-
-                    //ShellUtils.Inst.Info($"当前任务数{countdown.CurrentCount}");
-                    return;
-                }
-
-                for (int i = 1; i < nextNodes.Length; i++)
-                {
-                    countdown.TryAddCount();
-
-                    //ShellUtils.Inst.Info($"当前任务数{countdown.CurrentCount}");
-                    ThreadPool.QueueUserWorkItem(AddNextNodeAsync,
-                                                 new Tuple<T, CountdownEvent>(nextNodes[i], countdown));
-                }
-
-                AddNextNodeAsync(new Tuple<T, CountdownEvent>(nextNodes[0], countdown));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
             }
         }
 
