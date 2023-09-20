@@ -13,38 +13,64 @@ class Program
 {
     public static void Main()
     {
-        var val = CriticalConnections.Run(4, new int[][]
+        //Stack<int> stack = new Stack<int>();
+        //Queue<int> queue = new Queue<int>();
+        //for (int i = 0; i < 10; i++)
+        //{
+        //    stack.Push(i);
+        //    queue.Enqueue(i);
+        //}
+
+        //while (stack.Count > 0) 
+        //{
+        //    Console.WriteLine($"stack:{stack.Pop()}");
+        //    Console.WriteLine($"queue:{queue.Dequeue()}");
+        //}
+
+
+        //var val = NearestExit.Run(new char[][] 
+        //{
+        //    new char[]{ '+', '+', '.', '+' },
+        //    new char[]{ '.','.','.','+' },
+        //    new char[]{ '+','+','+','.' },
+        //}, new int[]
+        //{
+        //    1,2
+        //});
+
+        //var val = NearestExit.Run(new char[][]
+        //{
+        //    new char[]{ '+','+','+' },
+        //    new char[]{ '.','.','.' },
+        //    new char[]{ '+','+','+' },
+        //}, new int[]
+        //{
+        //    1,0
+        //});
+
+        var val = NearestExit.Run(new char[][]
         {
-            new int[] { 0, 1,},
-            new int[] { 1, 2,},
-            new int[] { 2, 3,},
-            //new int[] { 1, 3,},
+            new char[]{'+','.','+','+','+','+','+' },
+            new char[]{'+','.','+','.','.','.','+' },
+            new char[]{ '+','.','+','.','+','.','+' },
+            new char[]{ '+','.','.','.','+','.','+' },
+            new char[]{'+','+','+','+','+','.','+' },
+        }, new int[]
+        {
+            3,2
         });
 
-        //        var val = CriticalConnections.Run(2, new int[][]
+        //var val = NearestExit.Run(new char[][]
         //{
-        //                    new int[] { 0, 1,},
-        //});
-
-        //var val = CriticalConnections.Run(6, new int[][]
+        //    new char[]{'.','+' },
+        //}, new int[]
         //{
-        //    new int[] { 0, 1,},
-        //    new int[] { 1, 2,},
-        //    new int[] { 2, 0,},
-        //    new int[] { 1, 3,},
-        //    new int[] { 3, 4,},
-        //    new int[] { 4, 5,},
-        //    new int[] { 5, 3,},
+        //    0,0
         //});
 
 
-        foreach (var conn in val)
-        {
-            string log = string.Join(',', conn);
-            Console.WriteLine(log);
-        }
+        Console.WriteLine(val);
 
         Console.ReadLine();
     }
 }
-

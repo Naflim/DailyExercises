@@ -265,6 +265,57 @@ namespace HW.CAB.Helper.PipeNetwork
         }
 
         /// <summary>
+        /// BFS获取两点间最少连接数路径
+        /// </summary>
+        /// <param name="start">起点</param>
+        /// <param name="end">终点</param>
+        /// <param name="filter">过滤器</param>
+        /// <param name="hasRepeatNode">允许路径出现重复节点</param>
+        /// <returns>最少连接数路径</returns>
+        /// <exception cref="ArgumentException">目标点不在图内</exception>
+        public List<T> GetTargetByBfs(T start, Func<T, bool> target, Func<T[], T, bool> filter = null, bool hasRepeatNode = false)
+        {
+            if (!connectivity.ContainsKey(start))
+            {
+                throw new ArgumentException("起点不在图中", nameof(start));
+            }
+
+            HashSet<T> accessed = new HashSet<T>();
+            List<LinkedList<T>> paths = new List<LinkedList<T>>();
+            LinkedList<T> head = new LinkedList<T>();
+            head.AddLast(start);
+            paths.Add(head);
+            while (paths.Count > 0)
+            {
+                var cache = paths.ToArray();
+                paths.Clear();
+
+                foreach (var item in cache)
+                {
+                    T node = item.Last.Value;
+                    if (!hasRepeatNode)
+                        accessed.Add(node);
+                    if (target(node))
+                    {
+                        return item.ToList();
+                    }
+
+                    foreach (var next in GetConnectivity(node))
+                    {
+                        if (!accessed.Contains(next) && (filter?.Invoke(item.ToArray(), next) ?? true))
+                        {
+                            LinkedList<T> newPath = new LinkedList<T>(item);
+                            newPath.AddLast(next);
+                            paths.Add(newPath);
+                        }
+                    }
+                }
+            }
+
+            return new List<T>();
+        }
+
+        /// <summary>
         /// 迪杰斯特拉算法
         /// </summary>
         /// <param name="start">起点</param>
