@@ -13,29 +13,8 @@ class Program
 {
     public static void Main()
     {
-        //int[][] val = new int[][]
-        //{
-        //    new int[] { 0,1},
-        //    new int[] { 1,0},
-        //};
 
-        //int[][] val = new int[][]
-        //{
-        //    new int[] { 0,1,0},
-        //    new int[] { 0,0,0},
-        //     new int[] { 0,0,1},
-        //};
-
-        int[][] val = new int[][]
-        {
-            new int[] { 1,1,1,1,1},
-            new int[] { 1,0,0,0,1},
-            new int[] { 1,0,1,0,1},
-            new int[] { 1,0,0,0,1},
-            new int[] { 1,1,1,1,1},
-        };
-
-        Console.WriteLine(ShortestBridge.Run(val));
+        Console.WriteLine(DistMoney.Run(16,2));
 
         Console.ReadLine();
     }
