@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DailyExercises
 {
+    /// <summary>
+    /// 1832. 判断句子是否为全字母句
+    /// </summary>
     internal class CheckIfPangram
     {
         public static bool Run(string sentence)

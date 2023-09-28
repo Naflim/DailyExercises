@@ -49,7 +49,7 @@ namespace DailyExercises
             if (!nums.Any(n => n > 0))
                 return nums.Max();
 
-            var kadane = GetKadane(nums);
+            var kadane = GetKadane4Max(nums);
 
             int maximumLoss = 0;
             int maximumLossIndex = -1;
@@ -72,17 +72,17 @@ namespace DailyExercises
                 }
             }
 
-            var dp = GetKadane(nums);
+            var dp = GetKadane4Max(nums);
             if (maximumLossIndex == 0)
                 return dp[1..].Max();
 
-            if(maximumLossIndex == nums.Length - 1)
+            if (maximumLossIndex == nums.Length - 1)
                 return dp[..^1].Max();
 
-            var lastDp = GetKadane(nums[(maximumLossIndex + 1)..]);
+            var lastDp = GetKadane4Max(nums[(maximumLossIndex + 1)..]);
             int[] firstDp = new int[maximumLossIndex];
             firstDp[0] = nums[0];
-            for (int i =1 ; i < firstDp.Length; i++)
+            for (int i = 1; i < firstDp.Length; i++)
             {
                 firstDp[i] = firstDp[i - 1] + nums[i];
             }
@@ -90,14 +90,39 @@ namespace DailyExercises
             return Math.Max(dp.Max(), lastDp[^1] + firstDp.Max());
         }
 
-        public static int[] GetKadane(IEnumerable<int> nums)
+        public static int Run3(int[] nums)
         {
-            var numArr = nums.ToArray();
-            int[] dp = new int[numArr.Length];
-            dp[0] = numArr[0];
-            for (int i = 1; i < numArr.Length; i++)
+            int maxVal = nums.Max();
+            if(maxVal < 0)
+                return maxVal;
+
+            var max = GetKadane4Max(nums);
+            var min = GetKadane4Min(nums);
+
+            return Math.Max(max.Max(), nums.Sum() - min.Min());
+        }
+
+        public static int[] GetKadane4Max(IList<int> nums)
+        {
+            int len = nums.Count;
+            int[] dp = new int[len];
+            dp[0] = nums[0];
+            for (int i = 1; i < len; i++)
             {
-                dp[i] = dp[i - 1] > 0 ? dp[i - 1] + numArr[i] : numArr[i];
+                dp[i] = dp[i - 1] > 0 ? dp[i - 1] + nums[i] : nums[i];
+            }
+
+            return dp;
+        }
+
+        public static int[] GetKadane4Min(IList<int> nums)
+        {
+            int len = nums.Count;
+            int[] dp = new int[len];
+            dp[0] = nums[0];
+            for (int i = 1; i < len; i++)
+            {
+                dp[i] = dp[i - 1] < 0 ? dp[i - 1] + nums[i] : nums[i];
             }
 
             return dp;
