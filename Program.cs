@@ -13,23 +13,14 @@ class Program
 {
     public static void Main()
     {
-
-        Console.WriteLine(MaxSubarraySumCircular.Run3(new int[]
-        {
-           1,-2,3,-2
-        }));
-
-
-        Console.WriteLine(MaxSubarraySumCircular.Run3(new int[] 
-        {
-            5,-3,5
-        }));
-
-        Console.WriteLine(MaxSubarraySumCircular.Run3(new int[]
-        {
-            3,-2,2,-3
-        }));
-
+        StockSpanner stock = new StockSpanner();
+        Console.WriteLine(stock.Next(100));
+        Console.WriteLine(stock.Next(80));
+        Console.WriteLine(stock.Next(60));
+        Console.WriteLine(stock.Next(70));
+        Console.WriteLine(stock.Next(60));
+        Console.WriteLine(stock.Next(75));
+        Console.WriteLine(stock.Next(85));
 
         Console.ReadLine();
     }
