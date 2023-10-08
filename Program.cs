@@ -13,14 +13,28 @@ class Program
 {
     public static void Main()
     {
-        StockSpanner stock = new StockSpanner();
-        Console.WriteLine(stock.Next(100));
-        Console.WriteLine(stock.Next(80));
-        Console.WriteLine(stock.Next(60));
-        Console.WriteLine(stock.Next(70));
-        Console.WriteLine(stock.Next(60));
-        Console.WriteLine(stock.Next(75));
-        Console.WriteLine(stock.Next(85));
+        //var val = UpdateMatrix.Run(new int[][]
+        //{
+        //    new int[] { 0, 0, 0 },
+        //    new int[] { 0, 1, 0 },
+        //    new int[] { 0, 0, 0 },
+        //});
+
+        var val = UpdateMatrix.Run(new int[][]
+       {
+            new int[] { 0, 0, 0 },
+            new int[] { 0, 1, 0 },
+            new int[] { 1, 1, 1 },
+       });
+
+        for (int i = 0; i < val.Length; i++)
+        {
+            for (int j = 0; j < val[i].Length; j++)
+            {
+                Console.Write($"{val[i][j]},");
+            }
+            Console.WriteLine();
+        }
 
         Console.ReadLine();
     }
