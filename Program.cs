@@ -13,28 +13,26 @@ class Program
 {
     public static void Main()
     {
-        //var val = UpdateMatrix.Run(new int[][]
-        //{
-        //    new int[] { 0, 0, 0 },
-        //    new int[] { 0, 1, 0 },
-        //    new int[] { 0, 0, 0 },
-        //});
 
-        var val = UpdateMatrix.Run(new int[][]
-       {
-            new int[] { 0, 0, 0 },
-            new int[] { 0, 1, 0 },
-            new int[] { 1, 1, 1 },
-       });
-
-        for (int i = 0; i < val.Length; i++)
+        Console.WriteLine(ShortestPathBinaryMatrix.Run(new int[][] 
         {
-            for (int j = 0; j < val[i].Length; j++)
-            {
-                Console.Write($"{val[i][j]},");
-            }
-            Console.WriteLine();
-        }
+            new int[] { 0, 1,},
+            new int[] { 1, 0,},
+        }));
+
+        Console.WriteLine(ShortestPathBinaryMatrix.Run(new int[][]
+      {
+            new int[] { 0, 0,0},
+            new int[] { 1, 1,0},
+            new int[] { 1, 1,0},
+      }));
+
+        Console.WriteLine(ShortestPathBinaryMatrix.Run(new int[][]
+     {
+            new int[] { 1, 0,0},
+            new int[] { 1, 1,0},
+            new int[] { 1, 1,0},
+     }));
 
         Console.ReadLine();
     }
