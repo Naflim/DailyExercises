@@ -14,25 +14,7 @@ class Program
     public static void Main()
     {
 
-        Console.WriteLine(ShortestPathBinaryMatrix.Run(new int[][] 
-        {
-            new int[] { 0, 1,},
-            new int[] { 1, 0,},
-        }));
-
-        Console.WriteLine(ShortestPathBinaryMatrix.Run(new int[][]
-      {
-            new int[] { 0, 0,0},
-            new int[] { 1, 1,0},
-            new int[] { 1, 1,0},
-      }));
-
-        Console.WriteLine(ShortestPathBinaryMatrix.Run(new int[][]
-     {
-            new int[] { 1, 0,0},
-            new int[] { 1, 1,0},
-            new int[] { 1, 1,0},
-     }));
+        Console.WriteLine(SplitNum.Run(687));
 
         Console.ReadLine();
     }
