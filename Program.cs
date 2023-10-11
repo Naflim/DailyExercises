@@ -13,8 +13,24 @@ class Program
 {
     public static void Main()
     {
+        var val = TopStudents.Run(new string[]
+        {
+            "smart","brilliant","studious"
+        }, new string[]
+        {
+            "not"
+        }, new string[]
+        {
+            "this student is studious","the student is smart"
+        }, new int[]
+        {
+            1,2
+        }, 2);
 
-        Console.WriteLine(SplitNum.Run(687));
+        foreach (var item in val)
+        {
+            Console.WriteLine(item);
+        }
 
         Console.ReadLine();
     }

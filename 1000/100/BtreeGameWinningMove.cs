@@ -1,7 +1,9 @@
 ﻿using DailyExercises.Helper.Graph;
 using DailyExercises.Utils;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +51,19 @@ namespace DailyExercises
             this.val = val;
             this.left = left;
             this.right = right;
+        }
+    }
+
+    public class TreeNodeEqualityCompare : IEqualityComparer<TreeNode>
+    {
+        public bool Equals(TreeNode? x, TreeNode? y)
+        {
+            return x?.val == y?.val;
+        }
+
+        public int GetHashCode(TreeNode obj)
+        {
+            return obj.val;
         }
     }
 
