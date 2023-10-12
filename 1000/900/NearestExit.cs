@@ -105,7 +105,7 @@ namespace DailyExercises
             return x?.SequenceEqual(y) ?? false;
         }
 
-        public int GetHashCode([DisallowNull] int[] obj)
+        public int GetHashCode(int[] obj)
         {
             return string.Join(",", obj).GetHashCode();
         }

@@ -8,9 +8,53 @@ using System.Threading.Tasks;
 
 namespace DailyExercises
 {
-    internal class GetShortestPathAllKeys
+    /// <summary>
+    /// 864. 获取所有钥匙的最短路径
+    /// </summary>
+    internal class ShortestPathAllKeys
     {
-        public static int ShortestPathAllKeys(string[] grid)
+        public static int Run2(string[] grid)
+        {
+            HashSet<char> keys = new HashSet<char>();
+            Player? player = null;
+            for (int i = 0; i < grid.Length; i++)
+            {
+                for (int j = 0; j < grid[i].Length; j++)
+                {
+                    var val = grid[i][j];
+                    if (val == '@')
+                        player = new Player(j, i, string.Empty, 0);
+                    else if (char.IsLower(val))
+                        keys.Add(val);
+                }
+            }
+            if (player == null)
+                return -1;
+
+            Queue<Player> queue = new Queue<Player>();
+            queue.Enqueue(player);
+            Dictionary<string, HashSet<int[]>> footmark = new Dictionary<string, HashSet<int[]>>
+            {
+                { string.Empty, new HashSet<int[]>(new NearestExitComparer()) { new int[] { player.Y, player.X } } }
+            };
+
+            while(queue.Count > 0)
+            {
+                var pointer = queue.Dequeue();
+                if (pointer.IsTarget(keys))
+                    return pointer.StepNumber;
+
+                var nexts = pointer.GetNextStep(grid, footmark);
+                foreach (var next in nexts)
+                {
+                    queue.Enqueue(next);
+                }
+            }
+
+            return -1;
+        }
+
+        public static int Run(string[] grid)
         {
             int keysCount = 0;
             Cell? start = null;
@@ -107,6 +151,98 @@ namespace DailyExercises
             }
 
             return newMap;
+        }
+    }
+
+    public class Player
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public string Keys { get; set; }
+        public int StepNumber { get; set; }
+
+        public Player(int x, int y, string keys, int stepNumber)
+        {
+            X = x;
+            Y = y;
+            Keys = keys;
+            StepNumber = stepNumber;
+        }
+
+        public bool IsTarget(HashSet<char> keys)
+        {
+            return keys.SetEquals(Keys);
+        }
+
+        public bool CanWalk(int[] pointer, string[] map, Dictionary<string, HashSet<int[]>> footmark)
+        {
+            char val = map[pointer[0]][pointer[1]];
+            if (val == '#')
+                return false;
+
+            if (char.IsUpper(val) && !Keys.Contains((char)(val + 32)))
+                return false;
+
+            return !footmark[Keys].Contains(pointer);
+        }
+
+        public List<Player> GetNextStep(string[] map, Dictionary<string, HashSet<int[]>> footmark)
+        {
+            List<Player> list = new List<Player>();
+
+            void AddNextStep(int[] pointer)
+            {
+                var val = map[pointer[0]][pointer[1]];
+                footmark[Keys].Add(pointer);
+                if (char.IsLower(val) && !Keys.Contains(val))
+                {
+                    string newKeys = Keys + val;
+                    footmark[newKeys] = new HashSet<int[]>(new NearestExitComparer()) { pointer };
+                    list.Add(new Player(pointer[1], pointer[0], newKeys, StepNumber + 1));
+                }
+                else
+                {
+                    list.Add(new Player(pointer[1], pointer[0], Keys, StepNumber + 1));
+                }
+            }
+
+            if (X > 0)
+            {
+                var newPointer = new int[] { Y, X - 1 };
+                if (CanWalk(newPointer, map, footmark))
+                {
+                    AddNextStep(newPointer);
+                }
+            }
+
+            if (X < map[0].Length - 1)
+            {
+                var newPointer = new int[] { Y, X + 1 };
+                if (CanWalk(newPointer, map, footmark))
+                {
+                    AddNextStep(newPointer);
+                }
+            }
+
+            if (Y > 0)
+            {
+                var newPointer = new int[] { Y - 1, X };
+                if (CanWalk(newPointer, map, footmark))
+                {
+                    AddNextStep(newPointer);
+                }
+            }
+
+            if (Y < map.Length - 1)
+            {
+                var newPointer = new int[] { Y + 1, X };
+                if (CanWalk(newPointer, map, footmark))
+                {
+                    AddNextStep(newPointer);
+                }
+            }
+
+            return list;
         }
     }
 
