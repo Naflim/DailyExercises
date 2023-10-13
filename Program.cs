@@ -13,10 +13,11 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(FindTheArrayConcVal.Run(new int[] 
+        var val = AvoidFlood.Run(new int[] { 1, 2, 0, 1, 2 });
+        foreach (int i in val)
         {
-           5,14,13,8,12
-        }));
+            Console.WriteLine(i);
+        }
         Console.ReadLine();
     }
 }
