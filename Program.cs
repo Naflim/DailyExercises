@@ -13,10 +13,10 @@ class Program
 {
     public static void Main()
     {
-        var val = AvoidFlood.Run(new int[] { 1, 2, 0, 1, 2 });
-        foreach (int i in val)
+        var val = SingleNumber.Run(new int[] { 0, 1 });
+        for (int i = 0; i < val.Length; i++)
         {
-            Console.WriteLine(i);
+            Console.WriteLine(val[i]);
         }
         Console.ReadLine();
     }
