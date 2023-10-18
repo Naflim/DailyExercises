@@ -13,7 +13,8 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(SumOfMultiples.Run(9));
+        var data = IOUtils.GetArrByFile(@"C:\Users\Naflim\Desktop\data.txt");
+        Console.WriteLine(MaxKelements.Run2(data, 1000));
         Console.ReadLine();
     }
 }
