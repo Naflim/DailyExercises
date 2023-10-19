@@ -13,8 +13,13 @@ class Program
 {
     public static void Main()
     {
-        var data = IOUtils.GetArrByFile(@"C:\Users\Naflim\Desktop\data.txt");
-        Console.WriteLine(MaxKelements.Run2(data, 1000));
+        var data = IOUtils.GetArrsByFile(@"C:\Users\Naflim\Desktop\data.txt");
+        var val = PacificAtlantic.Run(data);
+        foreach (var item in val)
+        {
+            string str = string.Join(',', item);
+            Console.WriteLine(str);
+        }
         Console.ReadLine();
     }
 }
