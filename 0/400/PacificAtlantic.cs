@@ -1,12 +1,4 @@
-﻿using HW.CAB.Helper.PipeNetwork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DailyExercises
+﻿namespace DailyExercises
 {
     [Flags]
     public enum Ocean
@@ -51,7 +43,7 @@ namespace DailyExercises
                 return type;
             }
 
-            bool CanWalk(int[] prev,int[] now)
+            bool CanWalk(int[] prev, int[] now)
             {
                 return heights[now[0]][now[1]] <= heights[prev[0]][prev[1]];
             }
@@ -61,13 +53,13 @@ namespace DailyExercises
                 var location = priorityQueue.Dequeue();
                 map[location] = Ocean.Unknown;
                 Queue<int[]> queue = new Queue<int[]>();
-                queue.Enqueue(location);    
+                queue.Enqueue(location);
                 HashSet<int[]> visited = new HashSet<int[]>(comparer);
-                while(queue.Count > 0) 
+                while (queue.Count > 0)
                 {
                     var pointer = queue.Dequeue();
 
-                    if (map.ContainsKey(pointer) && !comparer.Equals(pointer,location))
+                    if (map.ContainsKey(pointer) && !comparer.Equals(pointer, location))
                     {
                         map[location] |= map[pointer];
                         continue;
@@ -124,6 +116,87 @@ namespace DailyExercises
             }
 
             return result;
+        }
+
+        public static IList<IList<int>> Run2(int[][] heights)
+        {
+            int m = heights.Length;
+            int n = heights[0].Length;
+
+            NearestExitComparer comparer = new NearestExitComparer();
+            HashSet<int[]> pacific = new HashSet<int[]>(comparer);
+            HashSet<int[]> atlantic = new HashSet<int[]>(comparer);
+
+            for (int i = 0; i < m; i++)
+            {
+                pacific.Add(new int[] { i, 0 });
+                atlantic.Add(new int[] { i, n - 1 });
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                pacific.Add(new int[] { 0, i });
+                atlantic.Add(new int[] { m - 1, i });
+            }
+
+            Queue<int[]> pacificQueue = new Queue<int[]>(pacific);
+            Queue<int[]> atlanticQueue = new Queue<int[]>(atlantic);
+
+            bool CanWalk(int[] prev, int[] now)
+            {
+                return heights[now[0]][now[1]] >= heights[prev[0]][prev[1]];
+            }
+
+            void BFS(Queue<int[]> queue, HashSet<int[]> visited)
+            {
+                while (queue.Count > 0)
+                {
+                    var pointer = queue.Dequeue();
+
+                    int x = pointer[1];
+                    int y = pointer[0];
+
+                    void AddNewPointer(int[] newPointer)
+                    {
+                        if (!visited.Contains(newPointer) && CanWalk(pointer, newPointer))
+                        {
+                            queue.Enqueue(newPointer);
+                            visited.Add(newPointer);
+                        }
+                    }
+
+                    if (x > 0)
+                    {
+                        var newPointer = new int[] { y, x - 1 };
+                        AddNewPointer(newPointer);
+                    }
+
+                    if (x < n - 1)
+                    {
+                        var newPointer = new int[] { y, x + 1 };
+                        AddNewPointer(newPointer);
+                    }
+
+                    if (y > 0)
+                    {
+                        var newPointer = new int[] { y - 1, x };
+                        AddNewPointer(newPointer);
+                    }
+
+                    if (y < m - 1)
+                    {
+                        var newPointer = new int[] { y + 1, x };
+                        AddNewPointer(newPointer);
+                    }
+                }
+            }
+
+            BFS(pacificQueue, pacific);
+            BFS(atlanticQueue, atlantic);
+
+            pacific.IntersectWith(atlantic);
+
+            return pacific.ToArray();
         }
     }
 }
