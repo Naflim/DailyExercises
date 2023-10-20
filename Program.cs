@@ -13,13 +13,7 @@ class Program
 {
     public static void Main()
     {
-        var data = IOUtils.GetArrsByFile(@"C:\Users\Naflim\Desktop\data.txt");
-        var val = PacificAtlantic.Run(data);
-        foreach (var item in val)
-        {
-            string str = string.Join(',', item);
-            Console.WriteLine(str);
-        }
+        Console.WriteLine(CategorizeBox.Run(3223, 1271, 2418, 2418));
         Console.ReadLine();
     }
 }
