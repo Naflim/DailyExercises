@@ -13,23 +13,31 @@ class Program
 {
     public static void Main()
     {
-        //var val = FindSmallestSetOfVertices.Run(6, new int[][]
+        //var val = new int[][]
         //{
         //    new int[] { 0, 1,},
-        //    new int[] { 0, 2,},
-        //    new int[] { 2, 5,},
-        //    new int[] { 3, 4,},
-        //    new int[] { 4, 2,},
-        //});
+        //    new int[] { 0, 3,},
+        //    new int[] { 1, 2,},
+        //    new int[] { 1, 3,},
+        //};
 
-        ////var val = FindSmallestSetOfVertices.Run(5, new int[][]
-        ////{
-        ////    new int[] { 0, 1,},
-        ////    new int[] { 2, 1,},
-        ////    new int[] { 3, 1,},
-        ////    new int[] { 1, 4,},
-        ////    new int[] { 2, 4,},
-        ////});
+       // var val = new int[][]
+       //{
+       //     new int[] { 0, 1,},
+       //     new int[] { 0, 3,},
+       //     new int[] { 1, 2,},
+       //     new int[] { 1, 3,},
+       //     new int[] { 2, 3,},
+       //     new int[] { 2, 4,},
+       //};
+
+        var val = new int[][]
+       {
+            new int[] { 2, 3,},
+            new int[] { 0, 3,},
+            new int[] { 0, 4,},
+            new int[] { 4, 1,},
+       };
 
 
         //foreach (var v in val)
@@ -37,10 +45,7 @@ class Program
         //    Console.WriteLine(v);
         //}
 
-        Console.WriteLine(CountSeniors.Run(new string[]
-        {
-            "7868190130M7522","5303914400F9211","9273338290F4010"
-        }));
+        Console.WriteLine(NumRollsToTarget.Run(30,30,500));
         Console.ReadLine();
     }
 }
