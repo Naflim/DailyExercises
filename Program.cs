@@ -21,31 +21,33 @@ class Program
         //    new int[] { 1, 3,},
         //};
 
-       // var val = new int[][]
-       //{
-       //     new int[] { 0, 1,},
-       //     new int[] { 0, 3,},
-       //     new int[] { 1, 2,},
-       //     new int[] { 1, 3,},
-       //     new int[] { 2, 3,},
-       //     new int[] { 2, 4,},
-       //};
+        // var val = new int[][]
+        //{
+        //     new int[] { 0, 1,},
+        //     new int[] { 0, 3,},
+        //     new int[] { 1, 2,},
+        //     new int[] { 1, 3,},
+        //     new int[] { 2, 3,},
+        //     new int[] { 2, 4,},
+        //};
 
         var val = new int[][]
        {
-            new int[] { 2, 3,},
-            new int[] { 0, 3,},
-            new int[] { 0, 4,},
-            new int[] { 4, 1,},
+            new int[] { 1,2,3},
+            new int[] {0,2},
+            new int[] { 0,1,3},
+            new int[] { 0,2},
        };
 
-
-        //foreach (var v in val)
+        //  var val = new int[][]
         //{
-        //    Console.WriteLine(v);
-        //}
+        //      new int[] { 1,3},
+        //      new int[] {0,2},
+        //      new int[] { 1,3},
+        //      new int[] { 0,2},
+        //};
 
-        Console.WriteLine(NumRollsToTarget.Run(30,30,500));
+        Console.WriteLine(IsBipartite.Run(val));
         Console.ReadLine();
     }
 }

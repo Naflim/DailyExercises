@@ -60,6 +60,24 @@ namespace HW.CAB.Helper.PipeNetwork
         }
 
         /// <summary>
+        /// 节点关联
+        /// </summary>
+        public void NodeAssociation()
+        {
+            HashSet<T> hash = new HashSet<T>(connectivity.Keys);
+            foreach (var item in connectivity)
+            {
+                connectivity[item.Key] = item.Value.Select(v =>
+                {
+                    if (hash.TryGetValue(v, out T target))
+                        return target;
+
+                    return v;
+                }).ToList();
+            }
+        }
+
+        /// <summary>
         /// 获取此节点的相邻节点
         /// </summary>
         /// <param name="node">查询节点</param>
