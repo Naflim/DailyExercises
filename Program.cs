@@ -13,41 +13,29 @@ class Program
 {
     public static void Main()
     {
-        //var val = new int[][]
-        //{
-        //    new int[] { 0, 1,},
-        //    new int[] { 0, 3,},
-        //    new int[] { 1, 2,},
-        //    new int[] { 1, 3,},
-        //};
+        Console.WriteLine(MaxArea.Run(5, 4, new int[]
+        {
+            1,2,4
+        }, new int[]
+        {
+            1,3
+        }));
 
-        // var val = new int[][]
-        //{
-        //     new int[] { 0, 1,},
-        //     new int[] { 0, 3,},
-        //     new int[] { 1, 2,},
-        //     new int[] { 1, 3,},
-        //     new int[] { 2, 3,},
-        //     new int[] { 2, 4,},
-        //};
-
-        var val = new int[][]
+        Console.WriteLine(MaxArea.Run(5, 4, new int[]
        {
-            new int[] { 1,2,3},
-            new int[] {0,2},
-            new int[] { 0,1,3},
-            new int[] { 0,2},
-       };
+            3,1
+       }, new int[]
+       {
+            1
+       }));
 
-        //  var val = new int[][]
-        //{
-        //      new int[] { 1,3},
-        //      new int[] {0,2},
-        //      new int[] { 1,3},
-        //      new int[] { 0,2},
-        //};
-
-        Console.WriteLine(IsBipartite.Run(val));
+        Console.WriteLine(MaxArea.Run(5, 4, new int[]
+      {
+           3
+      }, new int[]
+      {
+            3
+      }));
         Console.ReadLine();
     }
 }

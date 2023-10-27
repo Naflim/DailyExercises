@@ -4,6 +4,8 @@ namespace DailyExercises.Utils
 {
     internal static class ToolUtils
     {
+        public const int MOD = 0x3b9aca07;
+
         public static Dictionary<TKey, List<TValue>> ToDictionary<TKey, TValue>(this IEnumerable<IGrouping<TKey, TValue>> grups) where TKey : notnull
         {
             Dictionary<TKey, List<TValue>> dic = new Dictionary<TKey, List<TValue>>();
