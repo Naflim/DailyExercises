@@ -13,29 +13,32 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MaxArea.Run(5, 4, new int[]
-        {
-            1,2,4
-        }, new int[]
-        {
-            1,3
-        }));
+        int[] val = { 0, 1, 3, 5, 6 };
+        Console.WriteLine(HIndex.Run3(val));
 
-        Console.WriteLine(MaxArea.Run(5, 4, new int[]
-       {
-            3,1
-       }, new int[]
-       {
-            1
-       }));
+      //  Console.WriteLine(MaxArea.Run(5, 4, new int[]
+      //  {
+      //      1,2,4
+      //  }, new int[]
+      //  {
+      //      1,3
+      //  }));
 
-        Console.WriteLine(MaxArea.Run(5, 4, new int[]
-      {
-           3
-      }, new int[]
-      {
-            3
-      }));
-        Console.ReadLine();
+      //  Console.WriteLine(MaxArea.Run(5, 4, new int[]
+      // {
+      //      3,1
+      // }, new int[]
+      // {
+      //      1
+      // }));
+
+      //  Console.WriteLine(MaxArea.Run(5, 4, new int[]
+      //{
+      //     3
+      //}, new int[]
+      //{
+      //      3
+      //}));
+      //  Console.ReadLine();
     }
 }
