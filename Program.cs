@@ -3,9 +3,11 @@ using DailyExercises.Helper.Tree;
 using DailyExercises.LCP;
 using DailyExercises.Utils;
 using Newtonsoft.Json;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -13,32 +15,9 @@ class Program
 {
     public static void Main()
     {
-        int[] val = { 0, 1, 3, 5, 6 };
-        Console.WriteLine(HIndex.Run3(val));
-
-      //  Console.WriteLine(MaxArea.Run(5, 4, new int[]
-      //  {
-      //      1,2,4
-      //  }, new int[]
-      //  {
-      //      1,3
-      //  }));
-
-      //  Console.WriteLine(MaxArea.Run(5, 4, new int[]
-      // {
-      //      3,1
-      // }, new int[]
-      // {
-      //      1
-      // }));
-
-      //  Console.WriteLine(MaxArea.Run(5, 4, new int[]
-      //{
-      //     3
-      //}, new int[]
-      //{
-      //      3
-      //}));
-      //  Console.ReadLine();
+        Console.WriteLine(NumSimilarGroups.Run2(new string[] 
+        {
+         "vbwvpd","vdwbpv","bdvvwp","bvwvdp"
+        }));
     }
 }
