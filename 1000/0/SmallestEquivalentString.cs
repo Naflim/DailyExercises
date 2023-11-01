@@ -20,7 +20,6 @@ namespace DailyExercises
             _unionFind = new Dictionary<char, char>();
             _str1 = str1;
             _str2 = str2;
-            List<char> list = new List<char>();
         }
 
         public void InitUnionFind()
