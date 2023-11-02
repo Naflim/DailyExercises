@@ -15,9 +15,6 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(NumSimilarGroups.Run2(new string[] 
-        {
-         "vbwvpd","vdwbpv","bdvvwp","bvwvdp"
-        }));
+        Console.WriteLine(CountPoints.Run("G4"));
     }
 }
