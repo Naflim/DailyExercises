@@ -30,14 +30,18 @@ namespace DailyExercises.Utils
 
             for (int i = 0; i < arrList.Length; i++)
             {
-                int[] numList = arrList[i].Split(",").Select(n => Convert.ToInt32(n)).ToArray();
+                int[] numList;
+                if (string.IsNullOrEmpty(arrList[i]))
+                    numList = new int[0];
+                else
+                    numList = arrList[i].Split(",").Select(n => Convert.ToInt32(n)).ToArray();
                 resilt[i] = numList;
             }
 
             return resilt;
         }
 
-        public static string[] GetStringDataByFile(string path,Func<string,string>? convert = null)
+        public static string[] GetStringDataByFile(string path, Func<string, string>? convert = null)
         {
             string data = File.ReadAllText(path);
 
@@ -45,7 +49,7 @@ namespace DailyExercises.Utils
 
             string[] datas = data.Split(",");
 
-            if(convert != null) return datas.Select(convert).ToArray();
+            if (convert != null) return datas.Select(convert).ToArray();
             else return datas;
         }
     }
