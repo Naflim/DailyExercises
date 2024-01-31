@@ -17,6 +17,10 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(AlternatingSubarray.Run(new int[] { 6, 12, 2, 3, 8, 9, 10, 10, 2, 1 }));
+        var data = DistinctDifferenceArray.Run(new int[] { 1, 2, 3, 4, 5 });
+        foreach (var item in data)
+        {
+            Console.WriteLine(item);
+        }
     }
 }
