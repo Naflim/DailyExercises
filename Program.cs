@@ -17,10 +17,13 @@ class Program
 {
     public static void Main()
     {
-        var data = DistinctDifferenceArray.Run(new int[] { 1, 2, 3, 4, 5 });
-        foreach (var item in data)
-        {
-            Console.WriteLine(item);
-        }
+        //var data1 = IOUtils.GetArrByFile(@"C:\Users\Naflim\Desktop\data.txt");
+        //var data2 = IOUtils.GetArrByFile(@"C:\Users\Naflim\Desktop\flowers.txt");
+
+        var data1 = new int[] {1,3 };
+        var data2 = new int[] {2,1 };
+
+
+        Console.WriteLine(StoneGameVI.Run2(data1,data2));
     }
 }
