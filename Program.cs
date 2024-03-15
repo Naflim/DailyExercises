@@ -12,19 +12,28 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using Naflim.DevelopmentKit.DataStructure.Tree;
 
 class Program
 {
     public static void Main()
     {
-        //TreeNode root = new TreeNode(-1, null, new TreeNode(-1));
+        //int[][] prices = new int[][]
+        //{
+        //    new int[] { 1, 4, 2,},
+        //    new int[] { 2, 2, 7,},
+        //    new int[] { 2, 1, 3,},
+        //};
 
-        TreeNode root = new TreeNode(-1, new TreeNode(-1,new TreeNode(-1),new TreeNode(-1)), new TreeNode(-1));
+       // int[][] prices = new int[][]
+       //{
+       //     new int[] { 3, 2, 10,},
+       //     new int[] { 1, 4, 2,},
+       //     new int[] { 4, 1, 3,},
+       //};
 
-        FindElements demo = new FindElements(root);
+        int[][] prices = IOUtils.GetArrsByFile(@"C:\Users\Naflim\Desktop\data.txt");
 
-        Console.WriteLine(demo.Find(1));
-        Console.WriteLine(demo.Find(3));
-        Console.WriteLine(demo.Find(5));
+        Console.WriteLine(SellingWood.Run(200, 200, prices));
     }
 }
