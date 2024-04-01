@@ -18,22 +18,7 @@ class Program
 {
     public static void Main()
     {
-        //int[][] prices = new int[][]
-        //{
-        //    new int[] { 1, 4, 2,},
-        //    new int[] { 2, 2, 7,},
-        //    new int[] { 2, 1, 3,},
-        //};
 
-       // int[][] prices = new int[][]
-       //{
-       //     new int[] { 3, 2, 10,},
-       //     new int[] { 1, 4, 2,},
-       //     new int[] { 4, 1, 3,},
-       //};
-
-        int[][] prices = IOUtils.GetArrsByFile(@"C:\Users\Naflim\Desktop\data.txt");
-
-        Console.WriteLine(SellingWood.Run(200, 200, prices));
+        Console.WriteLine(FinalString.Run("poiinter"));
     }
 }
