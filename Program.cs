@@ -18,7 +18,9 @@ class Program
 {
     public static void Main()
     {
-
-        Console.WriteLine(FinalString.Run("poiinter"));
+        Console.WriteLine(MaximumCount.Run(new int[] 
+        {
+            -2,-1,-1,1,2,3
+        }));
     }
 }
