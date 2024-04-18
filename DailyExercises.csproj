@@ -16,8 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Naflim.DevelopmentKit" Version="1.0.1-beta" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DevelopmentKit\DevelopmentKit.csproj" />
   </ItemGroup>
 
 </Project>

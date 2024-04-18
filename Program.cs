@@ -18,9 +18,33 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MaximumCount.Run(new int[] 
+        //int[][] g = new int[][]
+        //{
+        //    new int[] { 1,1,0},
+        //    new int[] { 1,1,0},
+        //    new int[] { 0,0,1},
+        //};
+
+        //int[] initial = new int[] { 0, 1 };
+
+        //int[][] g = new int[][]
+        //{
+        //    new int[] { 1,1,0},
+        //    new int[] { 1,1,1},
+        //    new int[] { 0,1,1},
+        //};
+
+        //int[] initial = new int[] { 0, 1 };
+
+        int[][] g = new int[][]
         {
-            -2,-1,-1,1,2,3
-        }));
+            new int[] { 1,1,0,0},
+            new int[] { 1,1,1,0},
+            new int[] { 0,1,1,1},
+              new int[] { 0,0,1,1},
+        };
+
+        int[] initial = new int[] { 0, 1 };
+        Console.WriteLine(MinMalwareSpread.Run(g,initial));
     }
 }
