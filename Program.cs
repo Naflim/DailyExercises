@@ -18,33 +18,9 @@ class Program
 {
     public static void Main()
     {
-        //int[][] g = new int[][]
-        //{
-        //    new int[] { 1,1,0},
-        //    new int[] { 1,1,0},
-        //    new int[] { 0,0,1},
-        //};
-
-        //int[] initial = new int[] { 0, 1 };
-
-        //int[][] g = new int[][]
-        //{
-        //    new int[] { 1,1,0},
-        //    new int[] { 1,1,1},
-        //    new int[] { 0,1,1},
-        //};
-
-        //int[] initial = new int[] { 0, 1 };
-
-        int[][] g = new int[][]
+        Console.WriteLine(CountTestedDevices.Run(new int[] 
         {
-            new int[] { 1,1,0,0},
-            new int[] { 1,1,1,0},
-            new int[] { 0,1,1,1},
-              new int[] { 0,0,1,1},
-        };
-
-        int[] initial = new int[] { 0, 1 };
-        Console.WriteLine(MinMalwareSpread.Run(g,initial));
+            0,1,2
+        }));
     }
 }
