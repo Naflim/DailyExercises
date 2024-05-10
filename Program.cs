@@ -18,9 +18,19 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(CountTestedDevices.Run(new int[] 
+        int[][] p = new int[][]
         {
-            0,1,2
-        }));
+            new int[] { 1,4,2 },
+            new int[] { 2,2,7 },
+            new int[] { 2,1,3 },
+        };
+
+        //int[][] p = new int[][]
+        //{
+        //    new int[] { 3,2,10 },
+        //    new int[] { 1,4,2 },
+        //    new int[] { 4,1,3 },
+        //};
+        Console.WriteLine(SellingWood.Run2(3,5,p));
     }
 }
