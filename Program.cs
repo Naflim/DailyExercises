@@ -18,19 +18,25 @@ class Program
 {
     public static void Main()
     {
-        int[][] p = new int[][]
+        //int[][] grid = new int[][]
+        //{
+        //    new int[] { 2,1,1 },
+        //    new int[] { 1,1,0 },
+        //    new int[] { 0,1,1 },
+        //};
+
+        //int[][] grid = new int[][]
+        //{
+        //    new int[] { 2,1,1 },
+        //    new int[] { 0,1,1 },
+        //    new int[] { 1,0,1 },
+        //};
+
+        int[][] grid = new int[][]
         {
-            new int[] { 1,4,2 },
-            new int[] { 2,2,7 },
-            new int[] { 2,1,3 },
+            new int[] { 0 },
         };
 
-        //int[][] p = new int[][]
-        //{
-        //    new int[] { 3,2,10 },
-        //    new int[] { 1,4,2 },
-        //    new int[] { 4,1,3 },
-        //};
-        Console.WriteLine(SellingWood.Run2(3,5,p));
+        Console.WriteLine(OrangesRotting.Run(grid));
     }
 }
