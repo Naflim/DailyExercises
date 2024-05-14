@@ -47,19 +47,20 @@ namespace DailyExercises
 
             for (int i = 0; i < s.Length; i++)
             {
-                if (s[i] >  maxC) 
+                if (s[i] >  maxC)
                 {
                     maxC = s[i];
                     result = maxC.ToString();
                     newPointer = -1;
-                }else if (s[i] == maxC)
+                }
+                else if (s[i] == maxC)
                 {
                     newPointer = 0;
                     result += s[i];
                 }
                 else
                 {
-                    if(newPointer == -1)
+                    if (newPointer == -1)
                     {
                         result += s[i];
                     }
@@ -69,7 +70,8 @@ namespace DailyExercises
                         {
                             result += s[i];
                             newPointer = -1;
-                        }else if(result[newPointer + 1] == s[i])
+                        }
+                        else if (result[newPointer + 1] == s[i])
                         {
                             result += s[i];
                             newPointer++;

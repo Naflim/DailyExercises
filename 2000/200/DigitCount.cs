@@ -13,13 +13,13 @@ namespace DailyExercises
     {
         public static bool Run(string num)
         {
-            if(num.Length == 1)return false;
+            if (num.Length == 1) return false;
 
             Dictionary<int, int> count = new();
             int[] nums = new int[num.Length];
 
             int len = num.Length;
-            for (int i = 0; i<len; i++)
+            for (int i = 0; i < len; i++)
             {
                 int n = nums[i] = num[i] - 48;
 
@@ -27,15 +27,15 @@ namespace DailyExercises
                 else count[n] = 1;
             }
 
-            for (int i = 0; i<len; i++)
+            for (int i = 0; i < len; i++)
             {
-                if(count.ContainsKey(i))
+                if (count.ContainsKey(i))
                 {
-                    if(count[i] != nums[i])return false;
+                    if (count[i] != nums[i]) return false;
                 }
                 else
                 {
-                    if (nums[i] != 0)return false;
+                    if (nums[i] != 0) return false;
                 }
             }
 

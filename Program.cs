@@ -18,25 +18,9 @@ class Program
 {
     public static void Main()
     {
-        //int[][] grid = new int[][]
-        //{
-        //    new int[] { 2,1,1 },
-        //    new int[] { 1,1,0 },
-        //    new int[] { 0,1,1 },
-        //};
-
-        //int[][] grid = new int[][]
-        //{
-        //    new int[] { 2,1,1 },
-        //    new int[] { 0,1,1 },
-        //    new int[] { 1,0,1 },
-        //};
-
-        int[][] grid = new int[][]
+        Console.WriteLine(MinimumRounds.Run(new int[] 
         {
-            new int[] { 0 },
-        };
-
-        Console.WriteLine(OrangesRotting.Run(grid));
+            2,3,3
+        }));
     }
 }
