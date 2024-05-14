@@ -18,9 +18,12 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MinimumRounds.Run(new int[] 
+        var price = new int[]
         {
-            2,3,3
-        }));
+          7,7,7,7
+        };
+
+        //var price = IOUtils.GetArrByFile(@"C:\Users\Naflim\Desktop\data.txt");
+        Console.WriteLine(MaximumTastiness.Run2(price, 0));
     }
 }
