@@ -18,12 +18,26 @@ class Program
 {
     public static void Main()
     {
-        var price = new int[]
-        {
-          7,7,7,7
-        };
+        //        int[][] data = new int[][]
+        //       {
+        //              new int[] { 2,3,1},
+        //              new int[] { 4,5,1},
+        //              new int[] { 1,5,2 },
+        //       };
 
-        //var price = IOUtils.GetArrByFile(@"C:\Users\Naflim\Desktop\data.txt");
-        Console.WriteLine(MaximumTastiness.Run2(price, 0));
+        //        int[][] data = new int[][]
+        //{
+        //                    new int[] { 1,3,2},
+        //                    new int[] { 2,5,3},
+        //                    new int[] { 5,6,2 },
+        //};
+
+        int[][] data = IOUtils.GetArrsByFile(@"C:\Users\Naflim\Desktop\data.txt");
+
+        //Console.WriteLine(FindMinimumTime.Run(data));
+
+        //data = IOUtils.GetArrsByFile(@"C:\Users\Naflim\Desktop\data.txt");
+
+        Console.WriteLine(FindMinimumTime.Run2(data));
     }
 }
