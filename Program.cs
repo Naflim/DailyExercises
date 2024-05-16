@@ -18,26 +18,12 @@ class Program
 {
     public static void Main()
     {
-        //        int[][] data = new int[][]
-        //       {
-        //              new int[] { 2,3,1},
-        //              new int[] { 4,5,1},
-        //              new int[] { 1,5,2 },
-        //       };
-
-        //        int[][] data = new int[][]
+        //int[] data = new int[]
         //{
-        //                    new int[] { 1,3,2},
-        //                    new int[] { 2,5,3},
-        //                    new int[] { 5,6,2 },
+        //    5,2,1
         //};
 
-        int[][] data = IOUtils.GetArrsByFile(@"C:\Users\Naflim\Desktop\data.txt");
-
-        //Console.WriteLine(FindMinimumTime.Run(data));
-
-        //data = IOUtils.GetArrsByFile(@"C:\Users\Naflim\Desktop\data.txt");
-
-        Console.WriteLine(FindMinimumTime.Run2(data));
+        int[] data = IOUtils.GetArrByFile(@"C:\Users\Naflim\Desktop\data.txt");
+        Console.WriteLine(NumberOfWeeks.Run(data));
     }
 }
