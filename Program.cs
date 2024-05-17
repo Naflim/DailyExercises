@@ -18,12 +18,10 @@ class Program
 {
     public static void Main()
     {
-        //int[] data = new int[]
-        //{
-        //    5,2,1
-        //};
+        int[] d = { 85, 47, 57 };
+        int[] p = { 24, 66, 99 };
+        int[] w = { 40, 25, 25 };
 
-        int[] data = IOUtils.GetArrByFile(@"C:\Users\Naflim\Desktop\data.txt");
-        Console.WriteLine(NumberOfWeeks.Run(data));
+        Console.WriteLine(MaxProfitAssignment.Run(d, p, w));
     }
 }
