@@ -10,7 +10,7 @@ namespace DailyExercises
     {
         public static int Run(int[] stones, int k)
         {
-            if(stones.Length == 1) return 0;
+            if (stones.Length == 1) return 0;
 
             if (!CanCompose(stones.Length, k)) return -1;
             List<int> stoneCache = stones.ToList();
@@ -50,6 +50,69 @@ namespace DailyExercises
             stones.Insert(minIndex + 1, minCost);
             stones.RemoveRange(minIndex - k + 1, k);
             return minCost;
+        }
+
+        public static int Run2(int[] stones, int k)
+        {
+            int n = stones.Length;
+
+            if(n == 1)
+                return 0;
+
+            if ((k != 2 && n % (k - 1) != 1) || n < k)
+                return -1;
+
+            int m = k == 2 ? n - 1 : n / (k - 1);
+
+            int[] sum = new int[n];
+            sum[0] = stones[0];
+
+            for (int i = 1; i < n; i++)
+            {
+                sum[i] = sum[i-1] + stones[i];
+            }
+
+            int[,] dp = new int[m, n];
+            dp[0, k-1] = sum[k-1];
+
+            for (int i = k; i < n; i++)
+            {
+                dp[0, i] = sum[i] - sum[i - k];
+            }
+
+            for (int i = 1; i < m; i++)
+            {
+                int multiplier = (i + 1) * (k - 1);
+                for (int j = multiplier; j < n; j++)
+                {
+                    List<int> possibility = new List<int>();
+                    for (int t = 0; t <= j - k; t++)
+                    {
+                        if (dp[i - 1,t] != 0)
+                        {
+                            int prev = dp[i - 1,t];
+                            int now = sum[j] - sum[j - k];
+                            possibility.Add(prev + now);
+                        }
+                    }
+
+                    for (int t = 0; t < k; t++)
+                    {
+                        int prev = dp[i - 1, j - t];
+                        int now = sum[j];
+
+                        int index = j - multiplier - 1;
+                        if (index >= 0)
+                            now -= sum[index];
+
+                        possibility.Add(prev + now);
+                    }
+
+                    dp[i,j] = possibility.Min();
+                }
+            }
+
+            return dp[m - 1, n - 1];
         }
     }
 }

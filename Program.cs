@@ -18,10 +18,26 @@ class Program
 {
     public static void Main()
     {
-        int[] d = { 85, 47, 57 };
-        int[] p = { 24, 66, 99 };
-        int[] w = { 40, 25, 25 };
+        //int[] val = new int[]
+        //{
+        //    3,2,4,1
+        //};
 
-        Console.WriteLine(MaxProfitAssignment.Run(d, p, w));
+//        int[] val = new int[]
+//{
+//           3,5,1,2,6
+//};
+
+        int[] val = new int[]
+{
+           2,6,2,2,7,4,7
+};
+
+
+        //int[] val = new int[]
+        //{
+        //   6,4,4,6
+        //};
+        Console.WriteLine(MergeStones.Run2(val, 2));
     }
 }
