@@ -1,5 +1,4 @@
-﻿using DailyExercises;
-using DailyExercises._2000._700;
+﻿using DailyExercises._2000._700;
 using DailyExercises.Helper.Tree;
 using DailyExercises.LCP;
 using DailyExercises.Utils;
@@ -38,6 +37,9 @@ class Program
         //{
         //   6,4,4,6
         //};
-        Console.WriteLine(MergeStones.Run2(val, 2));
+        Console.WriteLine(MaxmiumScore.Run(new int[] 
+        {
+        7,4,1
+        }, 1));
     }
 }
