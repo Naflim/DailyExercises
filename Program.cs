@@ -41,7 +41,7 @@ class Program
 
         int[][] val = IOUtils.GetArrsByFile(@"C:\Users\Naflim\Desktop\data.txt");
 
-
+        var 
 
         Console.WriteLine(MaximumDetonation.Run2(val));
     }
