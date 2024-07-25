@@ -13,11 +13,11 @@ namespace DailyExercises
     {
         public static int Run(string num)
         {
-            (string, int, bool)[] keys = new (string, int, bool)[4];
-            keys[0] = ("25", 0, false);
-            keys[1] = ("50", 0, false);
-            keys[2] = ("75", 0, false);
-            keys[3] = ("00", 0, false);
+            (string, int)[] keys = new (string, int)[4];
+            keys[0] = ("25", 0);
+            keys[1] = ("50", 0);
+            keys[2] = ("75", 0);
+            keys[3] = ("00", 0);
 
             int len = num.Length;
 
@@ -26,58 +26,48 @@ namespace DailyExercises
                 switch (num[i])
                 {
                     case '0':
-                        if (!keys[1].Item3 && keys[1].Item2 == 0)
+                        if (keys[1].Item2 == 0)
                             keys[1].Item2++;
 
-                        if (!keys[3].Item3)
-                        {
-                            keys[3].Item2++;
+                        keys[3].Item2++;
 
-                            if (keys[3].Item2 == 2)
-                            {
-                                int val = len - i - 2;
-                                keys[3] = ("00", val, true);
-                            }
+                        if (keys[3].Item2 == 2)
+                        {
+                            int val = len - i - 2;
+                            return val;
                         }
                         break;
                     case '2':
-                        if (!keys[0].Item3 && keys[0].Item2 == 1)
+                        if (keys[0].Item2 == 1)
                         {
                             int val = len - i - 2;
-                            keys[0] = ("25", val, true);
+                            return val;
                         }
                         break;
                     case '5':
-                        if (!keys[0].Item3 && keys[0].Item2 == 0)
+                        if (keys[0].Item2 == 0)
                             keys[0].Item2++;
 
-                        if (!keys[2].Item3 && keys[2].Item2 == 0)
+                        if (keys[2].Item2 == 0)
                             keys[2].Item2++;
 
-                        if (!keys[1].Item3 && keys[1].Item2 == 1)
+                        if (keys[1].Item2 == 1)
                         {
                             int val = len - i - 2;
-                            keys[1] = ("50", val, true);
+                            return val;
                         }
                         break;
                     case '7':
-                        if (!keys[2].Item3 && keys[2].Item2 == 1)
+                        if (keys[2].Item2 == 1)
                         {
                             int val = len - i - 2;
-                            keys[2] = ("75", val, true);
+                            return val;
                         }
                         break;
                 }
             }
 
-            if (keys.Any(v => v.Item3))
-            {
-                return keys.Where(v => v.Item3).Min(v => v.Item2);
-            }
-            else
-            {
-                return len - keys[3].Item2;
-            }
+            return len - keys[3].Item2;
         }
     }
 }
