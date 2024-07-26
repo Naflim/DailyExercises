@@ -18,6 +18,9 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(MinimumOperations2.Run("10"));
+        Console.WriteLine(FindValueOfPartition.Run(new int[] 
+        {
+          100,1,10
+        }));
     }
 }
