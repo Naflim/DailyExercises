@@ -18,9 +18,19 @@ class Program
 {
     public static void Main()
     {
-        Console.WriteLine(FindValueOfPartition.Run(new int[] 
+        int[][] val = new int[][]
         {
-          100,1,10
-        }));
+            new int[] { 2,3,3,10 },
+            new int[] { 3,3,3,1 },
+            new int[] { 6,1,1,4 },
+        };
+
+       // int[][] val = new int[][]
+       //{
+       //      new int[] { 39,3,1000,1000 },
+       //};
+
+        string log = string.Join(',', GetGoodIndices.Run2(val, 2));
+        Console.WriteLine(log);
     }
 }

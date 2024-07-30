@@ -32,9 +32,23 @@ namespace DailyExercises.Utils
             return gcd;
         }
 
-        public static double GetDistance(double x1,double y1,double x2,double y2)
+        public static double GetDistance(double x1, double y1, double x2, double y2)
         {
             return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+        }
+
+        public static double FastExponentiationModulo(double x, double y, double modulo)
+        {
+            while (y % 2 == 0)
+            {
+                x = x * x % modulo;
+                y /= 2;
+            }
+
+            if (y == 1)
+                return x % modulo;
+
+            return FastExponentiationModulo(x, y - 1, modulo) * x % modulo;
         }
     }
 }
