@@ -18,19 +18,10 @@ class Program
 {
     public static void Main()
     {
-        int[][] val = new int[][]
-        {
-            new int[] { 2,3,3,10 },
-            new int[] { 3,3,3,1 },
-            new int[] { 6,1,1,4 },
-        };
+        int num = BitwiseOperationUtils.Multiply(-5, 7);
 
-       // int[][] val = new int[][]
-       //{
-       //      new int[] { 39,3,1000,1000 },
-       //};
+        int quotient = BitwiseOperationUtils.Divide(-2147483648, -1);
 
-        string log = string.Join(',', GetGoodIndices.Run2(val, 2));
-        Console.WriteLine(log);
+        Console.WriteLine(quotient);
     }
 }
