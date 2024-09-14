@@ -8,9 +8,65 @@ namespace DailyExercises.Utils
 {
     public class BitwiseOperationUtils
     {
+        public static string XOR(string a, string b)
+        {
+            int longLen = Math.Max(a.Length, b.Length);
+            a = a.PadLeft(longLen, '0');
+            b = b.PadLeft(longLen, '0');
+            char[] bits = new char[longLen];
+
+            for (int i = 0; i < longLen; i++)
+            {
+                bits[i] = a[i] == b[i] ? '0' : '1';
+            }
+
+            return new string(bits);
+        }
+
+        public static string AND(string a, string b)
+        {
+            int longLen = Math.Max(a.Length, b.Length);
+            a = a.PadLeft(longLen, '0');
+            b = b.PadLeft(longLen, '0');
+            char[] bits = new char[longLen];
+
+            for (int i = 0; i < longLen; i++)
+            {
+                bits[i] = a[i] == b[i] && a[i] == '1' ? '1' : '0';
+            }
+
+            return new string(bits);
+        }
+
+        public static string LeftShift(string a, int bit)
+        {
+            for (int i = 0; i < bit; i++)
+            {
+                a += '0';
+            }
+
+            return a;
+        }
+
+        public static string Simplify(string a)
+        {
+            if (a[0] == '1')
+                return a;
+
+            int i = 1;
+
+            for (; i < a.Length; i++)
+            {
+                if (a[i] == '1')
+                    return a[i..];
+            }
+
+            return "0";
+        }
+
         public static int Add(int a, int b)
         {
-            if(b == 0)
+            if (b == 0)
                 return a;
 
             int sum = a ^ b;
@@ -53,7 +109,7 @@ namespace DailyExercises.Utils
 
             long quotient = 0;
 
-            for (int i = 31; i >= 0; i--) 
+            for (int i = 31; i >= 0; i--)
             {
                 var multiple = absB << i;
                 if (multiple >= absB && multiple <= absA)

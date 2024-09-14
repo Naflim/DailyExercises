@@ -18,10 +18,6 @@ class Program
 {
     public static void Main()
     {
-        int num = BitwiseOperationUtils.Multiply(-5, 7);
-
-        int quotient = BitwiseOperationUtils.Divide(-2147483648, -1);
-
-        Console.WriteLine(quotient);
+        Console.WriteLine(AddBinary.Run2("11","1"));
     }
 }
