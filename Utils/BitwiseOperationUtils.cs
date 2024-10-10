@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DailyExercises.Utils
 {
-    public class BitwiseOperationUtils
+    public static class BitwiseOperationUtils
     {
         public static string XOR(string a, string b)
         {
@@ -126,6 +126,14 @@ namespace DailyExercises.Utils
             else
             {
                 return quotient > int.MaxValue ? int.MaxValue : (int)quotient;
+            }
+        }
+
+        public static IEnumerable<int> ToGather(this int num)
+        {
+            for (int t = num; t > 0; t &= t - 1)
+            {
+                yield return int.TrailingZeroCount(t);
             }
         }
     }
