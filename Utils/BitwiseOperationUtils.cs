@@ -136,5 +136,10 @@ namespace DailyExercises.Utils
                 yield return int.TrailingZeroCount(t);
             }
         }
+
+        public static int GetMask(int bit)
+        {
+            return 1 << bit;
+        }
     }
 }
