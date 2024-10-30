@@ -129,6 +129,22 @@ namespace DailyExercises.Utils
             }
         }
 
+        public static IEnumerable<int> ToGather(this long num)
+        {
+            for (long t = num; t > 0; t &= t - 1)
+            {
+                yield return (int)long.TrailingZeroCount(t);
+            }
+        }
+
+        public static IEnumerable<int> ToGather(this ulong num)
+        {
+            for (ulong t = num; t > 0; t &= t - 1)
+            {
+                yield return (int)ulong.TrailingZeroCount(t);
+            }
+        }
+
         public static IEnumerable<int> ToGather(this int num)
         {
             for (int t = num; t > 0; t &= t - 1)
@@ -137,9 +153,27 @@ namespace DailyExercises.Utils
             }
         }
 
-        public static int GetMask(int bit)
+        //public static int GetMask(int bit)
+        //{
+        //    return 1 << bit;
+        //}
+
+        public static string GetMask(int bit)
         {
-            return 1 << bit;
+            return "1".PadRight(bit + 1, '0');
+        }
+
+        public static IEnumerable<int> ToGather(this string bit)
+        {
+            int len = bit.Length;
+
+            for (int i = 0; i < len; i++)
+            {
+                if (bit[i] == '1')
+                {
+                    yield return len - 1 - i;
+                }
+            }
         }
     }
 }

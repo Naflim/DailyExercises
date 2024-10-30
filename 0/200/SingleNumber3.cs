@@ -9,7 +9,7 @@ namespace DailyExercises
     /// <summary>
     /// 260. 只出现一次的数字 III
     /// </summary>
-    internal class SingleNumber
+    internal class SingleNumber3
     {
         public static int[] Run(int[] nums)
         {

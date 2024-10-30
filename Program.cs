@@ -18,9 +18,9 @@ class Program
 {
     public static void Main()
     {
-        var result = GrayCode.Run(4);
+        var result = SingleNumber.Run([1, 0, 1]);
 
-        Console.WriteLine(string.Join(",", result));
+        Console.WriteLine(result);
     }
 }
     

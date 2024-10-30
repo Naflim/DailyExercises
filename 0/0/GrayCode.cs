@@ -21,14 +21,14 @@ namespace DailyExercises
             for (int i = 0; i < n; i++)
             {
                 List<int> newTrajectory = new List<int>();
-                int mask = BitwiseOperationUtils.GetMask(i);
+                int mask = 1 << i;
                 val ^= mask;
                 result.Add(val);
                 newTrajectory.Add(i);
 
                 foreach(int index in trajectory)
                 {
-                    mask = BitwiseOperationUtils.GetMask(index);
+                    mask = 1 << index;
                     val ^= mask;
                     result.Add(val);
                     newTrajectory.Add(index);
