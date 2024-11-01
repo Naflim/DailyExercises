@@ -18,13 +18,10 @@ class Program
 {
     public static void Main()
     {
-        var result = FindRepeatedDnaSequences.Run2("AAAAAAAAAAA");
+        var result = ReverseBits.Run(4294967293);
 
+        Console.WriteLine(result);
 
-        foreach (var sequence in result)
-        {
-            Console.WriteLine(sequence);
-        }
 
         //Console.WriteLine(Convert.ToString(int.MaxValue, 2).Length);
         //Console.WriteLine(Convert.ToString(int.MinValue, 2).Length);
