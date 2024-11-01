@@ -18,9 +18,13 @@ class Program
 {
     public static void Main()
     {
-        var result = SingleNumber.Run([1, 0, 1]);
+        var result = SingleNumber2.Run3([2, 2, 3, 2]);
 
         Console.WriteLine(result);
+
+        //Console.WriteLine(Convert.ToString(int.MaxValue, 2).Length);
+        //Console.WriteLine(Convert.ToString(int.MinValue, 2).Length);
+        //Console.WriteLine(Convert.ToString(-1, 2));
     }
 }
     

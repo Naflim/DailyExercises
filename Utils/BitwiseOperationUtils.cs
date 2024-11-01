@@ -153,27 +153,31 @@ namespace DailyExercises.Utils
             }
         }
 
-        //public static int GetMask(int bit)
-        //{
-        //    return 1 << bit;
-        //}
-
         public static string GetMask(int bit)
         {
             return "1".PadRight(bit + 1, '0');
         }
 
-        public static IEnumerable<int> ToGather(this string bit)
+        public static IEnumerable<int> ToGather(this string bits)
         {
-            int len = bit.Length;
+            List<int> list = new List<int>();
+            int len = bits.Length;
 
             for (int i = 0; i < len; i++)
             {
-                if (bit[i] == '1')
+                if (bits[i] == '1')
                 {
                     yield return len - 1 - i;
                 }
             }
+        }
+
+        public static bool ContainsBit(this string bits,int num)
+        {
+            if(num >= bits.Length)
+                return false;
+
+            return bits[bits.Length - 1 - num] == '1';
         }
     }
 }
