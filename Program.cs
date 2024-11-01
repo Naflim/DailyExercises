@@ -18,13 +18,16 @@ class Program
 {
     public static void Main()
     {
-        var result = SingleNumber2.Run3([2, 2, 3, 2]);
+        var result = FindRepeatedDnaSequences.Run2("AAAAAAAAAAA");
 
-        Console.WriteLine(result);
+
+        foreach (var sequence in result)
+        {
+            Console.WriteLine(sequence);
+        }
 
         //Console.WriteLine(Convert.ToString(int.MaxValue, 2).Length);
         //Console.WriteLine(Convert.ToString(int.MinValue, 2).Length);
         //Console.WriteLine(Convert.ToString(-1, 2));
     }
 }
-    
