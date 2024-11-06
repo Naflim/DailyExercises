@@ -4,9 +4,6 @@ class Program
 {
     public static void Main()
     {
-        var result = RangeBitwiseAnd.Run(5, 7);
-
-        Console.WriteLine(result);
 
 
 
