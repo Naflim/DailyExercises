@@ -4,7 +4,7 @@ class Program
 {
     public static void Main()
     {
-
+        Console.WriteLine(MissingNumber.Run([0, 2, 3]));
 
 
         //Console.WriteLine(Convert.ToString(int.MaxValue, 2).Length);
