@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DailyExercises.Utils
+﻿namespace DailyExercises.Utils
 {
     public static class BitwiseOperationUtils
     {
@@ -172,9 +166,9 @@ namespace DailyExercises.Utils
             }
         }
 
-        public static bool ContainsBit(this string bits,int num)
+        public static bool ContainsBit(this string bits, int num)
         {
-            if(num >= bits.Length)
+            if (num >= bits.Length)
                 return false;
 
             return bits[bits.Length - 1 - num] == '1';
