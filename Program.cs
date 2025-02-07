@@ -5,7 +5,7 @@ class Program
 {
     public static void Main()
     {
-        var arr = CanIWin.Run(10, 11);
+        var arr = Makesquare.Run([3, 3, 3, 3, 4]);
         Console.WriteLine(arr);
     }
 }
