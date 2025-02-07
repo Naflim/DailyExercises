@@ -5,7 +5,15 @@ class Program
 {
     public static void Main()
     {
-        var arr = Makesquare.Run([3, 3, 3, 3, 4]);
-        Console.WriteLine(arr);
+        int[] arr1 = [1];
+        int[] arr2 = [1,1];
+
+        //int[] arr1 = IOUtils.GetArrByFile(@"C:\Users\Naflim\Desktop\data.txt");
+        //int[] arr2 = IOUtils.GetArrByFile(@"C:\Users\Naflim\Desktop\data2.txt");
+
+        var result = AddNegabinary.Run3(arr1, arr2);
+
+        string log = string.Join(",", result);
+        Console.WriteLine(log);
     }
 }
