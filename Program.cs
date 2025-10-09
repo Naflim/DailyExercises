@@ -5,7 +5,9 @@ class Program
 {
     public static void Main()
     {
-        var result = TotalHammingDistance.Run([4, 14, 2]);
+        int[] skill = [1, 2, 3, 4];
+        int[] mana = [1, 2];
+        var result = MinTime.Run(skill, mana);
 
         Console.WriteLine(result);
     }
