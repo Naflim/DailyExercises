@@ -5,9 +5,8 @@ class Program
 {
     public static void Main()
     {
-        int[] skill = [1, 2, 3, 4];
-        int[] mana = [1, 2];
-        var result = MinTime.Run(skill, mana);
+        int[] energy = [-2, -3, -1];
+        var result = MaximumEnergy.Run(energy, 2);
 
         Console.WriteLine(result);
     }
