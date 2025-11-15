@@ -5,8 +5,7 @@ class Program
 {
     public static void Main()
     {
-        int[] energy = [-2, -3, -1];
-        var result = MaximumEnergy.Run(energy, 2);
+        var result = NumberOfSubstrings.Run2("101101");
 
         Console.WriteLine(result);
     }
