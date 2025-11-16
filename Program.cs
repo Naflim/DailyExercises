@@ -5,7 +5,8 @@ class Program
 {
     public static void Main()
     {
-        var result = NumberOfSubstrings.Run2("101101");
+        string data = File.ReadAllText("E:/Script/logging/data.txt");
+        var result = NumSub.Run(data);
 
         Console.WriteLine(result);
     }
