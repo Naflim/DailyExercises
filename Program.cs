@@ -5,8 +5,8 @@ class Program
 {
     public static void Main()
     {
-        string data = File.ReadAllText("E:/Script/logging/data.txt");
-        var result = NumSub.Run(data);
+
+        var result = KLengthApart.Run([1, 0, 0, 1, 0, 1],2);
 
         Console.WriteLine(result);
     }
