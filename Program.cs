@@ -6,7 +6,7 @@ class Program
     public static void Main()
     {
 
-        var result = KLengthApart.Run([1, 0, 0, 1, 0, 1],2);
+        var result = IsOneBitCharacter.Run([1, 1, 1, 0]);
 
         Console.WriteLine(result);
     }
