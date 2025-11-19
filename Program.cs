@@ -6,7 +6,7 @@ class Program
     public static void Main()
     {
 
-        var result = IsOneBitCharacter.Run([1, 1, 1, 0]);
+        var result = FindFinalValue.Run([2, 7, 9],4 );
 
         Console.WriteLine(result);
     }
