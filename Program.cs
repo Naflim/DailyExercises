@@ -6,7 +6,7 @@ class Program
     public static void Main()
     {
 
-        var result = FindFinalValue.Run([2, 7, 9],4 );
+        var result = CountPalindromicSubsequence.Run("ckafnafqo");
 
         Console.WriteLine(result);
     }
