@@ -6,7 +6,7 @@ class Program
     public static void Main()
     {
 
-        var result = CountPalindromicSubsequence.Run("ckafnafqo");
+        var result = RemoveOuterParentheses.Run("()()");
 
         Console.WriteLine(result);
     }
