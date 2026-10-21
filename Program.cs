@@ -5,7 +5,7 @@ class Program
 {
     public static void Main()
     {
-        var result = SumCounts.Run([2, 2]);
+        var result = MinOperations2.Run("card");
         Console.WriteLine(result);
     }
 }
