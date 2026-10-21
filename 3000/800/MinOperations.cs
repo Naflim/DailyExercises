@@ -81,5 +81,34 @@ namespace DailyExercises
 
             return Math.Min(leftCount, rightCount);
         }
+
+        public static int Run2(string s)
+        {
+            char[] arr = s.ToCharArray();
+            Array.Sort(arr);
+            string sortedString = new(arr);
+            if (s == sortedString)
+                return 0;
+
+            if (sortedString.Length == 2)
+                return -1;
+
+            char min = arr[0];
+            char max = arr[^1];
+
+            if (s.Last() == max)
+                return 1;
+
+            if (s.First() == min)
+                return 1;
+
+            for (int i = 1; i < s.Length - 1; i++)
+            {
+                if (s[i] == min || s[i] == max)
+                    return 2;
+            }
+
+            return 3;
+        }
     }
 }
