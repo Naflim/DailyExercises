@@ -5,7 +5,7 @@ class Program
 {
     public static void Main()
     {
-        var result = MinOperations2.Run("card");
+        var result = MinOperations3.Run([1, 2, 3, 4, 0]);
         Console.WriteLine(result);
     }
 }
