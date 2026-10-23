@@ -5,7 +5,7 @@ class Program
 {
     public static void Main()
     {
-        var result = MinOperations3.Run([1, 2, 3, 4, 0]);
+        var result = SortPermutation.Run([0, 1, 3, 2]);
         Console.WriteLine(result);
     }
 }
