@@ -5,7 +5,10 @@ class Program
 {
     public static void Main()
     {
-        var result = SortPermutation.Run([0, 1, 3, 2]);
-        Console.WriteLine(result);
+        var result = CreateGrid.Run(2, 3);
+        for (int i = 0; i < result.Length; i++)
+        {
+            Console.WriteLine(result[i]);
+        }
     }
 }
