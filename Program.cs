@@ -5,10 +5,7 @@ class Program
 {
     public static void Main()
     {
-        var result = CreateGrid.Run(2, 3);
-        for (int i = 0; i < result.Length; i++)
-        {
-            Console.WriteLine(result[i]);
-        }
+        var result = MaxLength.Run([1, 2, 3, 1, 4, 5, 1]);
+        Console.WriteLine(result);
     }
 }
